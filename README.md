@@ -55,6 +55,10 @@ class Example extends Component {
 * `maxHeight` (optional number): The maximum height of content, in pixels.
 * `maxWidth` (optional number): The maximum width of content, in pixels.
 
+## Examples
+
+See the [Examples Page](https://dobs.github.io/react-preserve-ratio/).
+
 ## License
 
 Apache-2.0 © [Daniel O'Brien](https://github.com/dobs)
