@@ -9,7 +9,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
   background-color: #eee;
   border-radius: 2px;
   padding: 2px 3px;
@@ -17,4 +18,17 @@ code {
 
 li {
   margin-bottom: 0.5em;
+}
+
+h1,
+h2,
+p,
+ul {
+  max-width: 640px;
+}
+
+button {
+  font-size: 1em;
+  padding: 2px 4px;
+  margin: 0 0.5em 0 0;
 }

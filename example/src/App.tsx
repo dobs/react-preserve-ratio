@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as PropTypes from 'prop-types'
 
 import { PreserveRatio } from 'react-preserve-ratio'
+
+interface Rect {
+  height: number
+  width: number
+}
 
 function ResizableContainer({
   children
@@ -11,6 +16,7 @@ function ResizableContainer({
       style={{
         border: '1px dotted rgba(0, 0, 0, 0.2)',
         display: 'block',
+        height: '240px',
         overflow: 'hidden',
         resize: 'both',
         width: '640px'
@@ -26,6 +32,10 @@ ResizableContainer.propTypes = {
 }
 
 const App = () => {
+  const [contentResizeRect, setContentResizeRect] = useState<Rect>({
+    width: 320,
+    height: 240
+  })
   return (
     <div
       style={{
@@ -35,19 +45,19 @@ const App = () => {
       <h1>Examples: react-preserve-scale</h1>
       <h2>Basic Example</h2>
       <p>
-        Try resizing the box below and notice how the inner box automatically
-        scales while maintaining its ratio.
+        Try resizing the box below and notice how content automatically scales
+        while maintaining its ratio.
       </p>
       <ResizableContainer>
         <PreserveRatio>
           <div
             style={{
+              alignItems: 'center',
               backgroundColor: '#ffffdd',
               display: 'flex',
-              width: '320px',
               height: '240px',
-              alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              width: '320px'
             }}
           >
             Hello, world!
@@ -58,18 +68,18 @@ const App = () => {
       <h2>Constraints Example</h2>
       <p>
         This time the <code>maxScale</code> option is set to <code>2</code>,
-        limiting the inner box to 2x its initial scale.
+        limiting content to 2x its initial scale.
       </p>
       <ResizableContainer>
         <PreserveRatio maxScale={2}>
           <div
             style={{
+              alignItems: 'center',
               backgroundColor: '#ffffdd',
               display: 'flex',
-              width: '320px',
               height: '240px',
-              alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              width: '320px'
             }}
           >
             Hello, world!
@@ -94,8 +104,83 @@ const App = () => {
       <p>
         Minimum constraints are more container-dependent an so aren't currently
         covered by the component in favour of letting users specify their own{' '}
-        <code>min-width</code> and <code>min-height</code>.
+        <code>min-width</code> and <code>min-height</code> on the container.
       </p>
+
+      <h2>Content Resizing Example</h2>
+      <p>
+        Content is also automatically scaled when content dimensions change. Try
+        using the buttons below to change the content box's size.
+      </p>
+      <p>
+        <button
+          onClick={() => setContentResizeRect({ width: 320, height: 240 })}
+        >
+          Default
+        </button>
+        <button
+          onClick={() => setContentResizeRect({ width: 480, height: 240 })}
+        >
+          Wide
+        </button>
+        <button
+          onClick={() => setContentResizeRect({ width: 240, height: 320 })}
+        >
+          Tall
+        </button>
+      </p>
+      <ResizableContainer>
+        <PreserveRatio>
+          <div
+            style={{
+              alignItems: 'center',
+              backgroundColor: '#ffffdd',
+              display: 'flex',
+              height: `${contentResizeRect.height}px`,
+              justifyContent: 'center',
+              transition: 'width 200ms, height 200ms',
+              width: `${contentResizeRect.width}px`
+            }}
+          >
+            Hello, world!
+          </div>
+        </PreserveRatio>
+      </ResizableContainer>
+
+      <h2>Safe Mode Example</h2>
+      <p>
+        If elements are resized too quickly it can result in non-user-impacting
+        errors. Where this could become a problem is if you're using a frontend
+        error tracking service it could create a lot of noise.
+      </p>
+      <p>
+        To help mitigate, there's a <code>safeMode</code> prop that introduces a
+        small amount of user-visible latency but in an attempt to reduce these
+        errors.
+      </p>
+      <p>
+        See{' '}
+        <a href='https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded'>
+          this StackOverflow thread
+        </a>{' '}
+        for more detail.
+      </p>
+      <ResizableContainer>
+        <PreserveRatio safeMode>
+          <div
+            style={{
+              alignItems: 'center',
+              backgroundColor: '#ffffdd',
+              display: 'flex',
+              height: '240px',
+              justifyContent: 'center',
+              width: '320px'
+            }}
+          >
+            Hello, world!
+          </div>
+        </PreserveRatio>
+      </ResizableContainer>
 
       <h2>Window Scaling Example</h2>
       <p>
@@ -110,19 +195,19 @@ const App = () => {
       <div
         style={{
           border: '1px dotted rgba(0, 0, 0, 0.2)',
-          width: '100%',
-          height: 'calc(100vh - 2em)'
+          height: 'calc(100vh - 2em)',
+          width: '100%'
         }}
       >
         <PreserveRatio>
           <div
             style={{
+              alignItems: 'center',
               backgroundColor: '#ffffdd',
               display: 'flex',
-              width: '320px',
               height: '240px',
-              alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              width: '320px'
             }}
           >
             Hello, world!

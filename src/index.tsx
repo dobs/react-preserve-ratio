@@ -21,6 +21,7 @@ export function PreserveRatio({
   maxHeight,
   maxScale,
   maxWidth,
+  safeMode,
 }: PropTypes.InferProps<typeof PreserveRatio.propTypes>) {
   const innerRef = useRef(null);
   const outerRef = useRef(null);
@@ -42,22 +43,30 @@ export function PreserveRatio({
     );
   }, [innerRect, maxScale, maxHeight, maxWidth, outerRect]);
 
+  const applyResize = (entries: any) => entries.forEach((entry: any) => {
+    switch (entry.target) {
+      case innerRef.current:
+        setInnerRect(entry.contentRect);
+        break;
+      case outerRef.current:
+        setOuterRect(entry.contentRect);
+        break;
+    }
+  });
+
   useEffect(() => {
     const observer = new ResizeObserver((entries: any) => {
       if (!Array.isArray(entries)) {
         return;
       }
 
-      entries.forEach(entry => {
-        switch (entry.target) {
-          case innerRef.current:
-            setInnerRect(entry.contentRect);
-            break;
-          case outerRef.current:
-            setOuterRect(entry.contentRect);
-            break;
-        }
-      });
+      if (safeMode) {
+        window.requestAnimationFrame(() => {
+          applyResize(entries);
+        });
+      } else {
+        applyResize(entries);
+      }
     });
 
     observer.observe(innerRef.current!);
@@ -66,7 +75,7 @@ export function PreserveRatio({
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [safeMode]);
 
   return (
     <div
@@ -94,4 +103,5 @@ PreserveRatio.propTypes = {
   maxHeight: PropTypes.number,
   maxScale: PropTypes.number,
   maxWidth: PropTypes.number,
+  safeMode: PropTypes.bool,
 };

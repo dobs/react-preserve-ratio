@@ -54,6 +54,7 @@ class Example extends Component {
 * `maxScale` (optional number): The maximum scale for content relative to their real size.
 * `maxHeight` (optional number): The maximum height of content, in pixels.
 * `maxWidth` (optional number): The maximum width of content, in pixels.
+* `safeMode` (optional bool): Attempt to reduce non-user-impacting `ResizeObserver` errors at the cost of latency (See: [StackOverflow](https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded))
 
 ## Examples
 
