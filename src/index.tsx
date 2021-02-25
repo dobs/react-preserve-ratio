@@ -1,5 +1,4 @@
-import * as React from 'react';
-import {useEffect, useMemo, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import * as PropTypes from 'prop-types';
 
 interface Rect {
@@ -17,12 +16,12 @@ const baseStyles = {
   padding: 0,
 };
 
-export function ReactPreserveRatio({
+export function PreserveRatio({
   children,
   maxHeight,
   maxScale,
   maxWidth,
-}: PropTypes.InferProps<typeof ReactPreserveRatio.propTypes>) {
+}: PropTypes.InferProps<typeof PreserveRatio.propTypes>) {
   const innerRef = useRef(null);
   const outerRef = useRef(null);
 
@@ -90,7 +89,7 @@ export function ReactPreserveRatio({
   );
 }
 
-ReactPreserveRatio.propTypes = {
+PreserveRatio.propTypes = {
   children: PropTypes.node.isRequired,
   maxHeight: PropTypes.number,
   maxScale: PropTypes.number,
