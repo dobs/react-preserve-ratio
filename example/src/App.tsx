@@ -265,6 +265,7 @@ const App = () => {
               display: 'flex',
               height: `${contentResizeRect.height}px`,
               justifyContent: 'center',
+              transition: 'width 200ms, height 200ms',
               width: `${contentResizeRect.width}px`
             }}
           >
