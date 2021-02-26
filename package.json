@@ -1,6 +1,6 @@
 {
   "name": "react-preserve-ratio",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A React component to preserve an element&#x27;s ratio when scaling.",
   "author": "dobs",
   "license": "Apache-2.0",
