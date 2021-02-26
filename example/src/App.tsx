@@ -253,10 +253,10 @@ const App = () => {
               alignItems: 'center',
               backgroundColor: '#ffffdd',
               display: 'flex',
-              height: `${contentResizeRect.height}px`,
+              height: `240px`,
               justifyContent: 'center',
               transition: 'width 200ms, height 200ms',
-              width: `${contentResizeRect.width}px`
+              width: `320px`
             }}
           >
             Hello, world!
