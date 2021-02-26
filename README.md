@@ -2,6 +2,8 @@
 
 > A React component to preserve an element's ratio when scaling.
 
+For example, how slideshow slides automatically scale to fit a window or screen without distorting. See the [interactive examples](https://dobs.github.io/react-preserve-ratio/) for a demo!
+
 [![NPM](https://img.shields.io/npm/v/react-preserve-ratio.svg)](https://www.npmjs.com/package/react-preserve-ratio) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
