@@ -24,8 +24,8 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "prop-types": "^15.0.0",
-    "react": "^16.0.0"
+    "prop-types": ">15.0.0",
+    "react": ">16.8.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
