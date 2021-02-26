@@ -192,57 +192,75 @@ const App = () => {
           className='arrow-button'
           onClick={() => setAlignment({ align: 'left', valign: 'top' })}
         >
-          ↖️
+          <span role='img' aria-label='top-left'>
+            ↖️
+          </span>
         </button>
         <button
           className='arrow-button'
           onClick={() => setAlignment({ align: 'center', valign: 'top' })}
         >
-          ⬆️
+          <span role='img' aria-label='top-center'>
+            ⬆️
+          </span>
         </button>
         <button
           className='arrow-button'
           onClick={() => setAlignment({ align: 'right', valign: 'top' })}
         >
-          ↗️
+          <span role='img' aria-label='top-right'>
+            ↗️
+          </span>
         </button>
         <br />
         <button
           className='arrow-button'
           onClick={() => setAlignment({ align: 'left', valign: 'center' })}
         >
-          ⬅️
+          <span role='img' aria-label='center-left'>
+            ⬅️
+          </span>
         </button>
         <button
           className='arrow-button'
           onClick={() => setAlignment({ align: 'center', valign: 'center' })}
         >
-          ⏺
+          <span role='img' aria-label='center-center'>
+            ⏺
+          </span>
         </button>
         <button
           className='arrow-button'
           onClick={() => setAlignment({ align: 'right', valign: 'center' })}
         >
-          ➡️
+          <span role='img' aria-label='center-right'>
+            ➡️
+          </span>
         </button>
         <br />
         <button
           className='arrow-button'
           onClick={() => setAlignment({ align: 'left', valign: 'bottom' })}
         >
-          ↙️
+          <span role='img' aria-label='bottom-left'>
+            ↙️
+          </span>
         </button>
         <button
           className='arrow-button'
           onClick={() => setAlignment({ align: 'center', valign: 'bottom' })}
         >
-          ⬇️
+          <span role='img' aria-label='bottom-center'>
+            ⬇️
+          </span>
         </button>
         <button
           className='arrow-button'
           onClick={() => setAlignment({ align: 'right', valign: 'bottom' })}
         >
-          ↘️
+          <span role='img' aria-label='bottom-right'>
+            ↘️
+          </span>
         </button>
       </p>
 

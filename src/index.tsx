@@ -1,21 +1,21 @@
-import React, {useEffect, useMemo, useRef, useState} from 'react';
-import * as PropTypes from 'prop-types';
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import * as PropTypes from 'prop-types'
 
 interface Rect {
-  height: number;
-  width: number;
+  height: number
+  width: number
 }
 
 const alignMap = {
   left: 'flex-start',
   center: 'space-around',
-  right: 'flex-end',
+  right: 'flex-end'
 }
 
 const valignMap = {
   top: 'flex-start',
   center: 'center',
-  bottom: 'flex-end',
+  bottom: 'flex-end'
 }
 export function PreserveRatio({
   align,
@@ -24,64 +24,65 @@ export function PreserveRatio({
   maxScale,
   maxWidth,
   safeMode,
-  valign,
+  valign
 }: PropTypes.InferProps<typeof PreserveRatio.propTypes>) {
-  const innerRef = useRef(null);
-  const outerRef = useRef(null);
+  const innerRef = useRef(null)
+  const outerRef = useRef(null)
 
-  const [innerRect, setInnerRect] = useState<Rect>({width: 0, height: 0});
-  const [outerRect, setOuterRect] = useState<Rect>({width: 0, height: 0});
+  const [innerRect, setInnerRect] = useState<Rect>({ width: 0, height: 0 })
+  const [outerRect, setOuterRect] = useState<Rect>({ width: 0, height: 0 })
 
   const scale = useMemo(() => {
     let dynamicScale = Math.min(
       outerRect.width / innerRect.width,
       outerRect.height / innerRect.height
-    );
+    )
 
     return Math.min(
       dynamicScale,
       maxScale || Number.MAX_VALUE,
       (maxHeight || Number.MAX_VALUE) / innerRect.height,
-      (maxWidth || Number.MAX_VALUE)/ innerRect.width
-    );
-  }, [innerRect, maxScale, maxHeight, maxWidth, outerRect]);
+      (maxWidth || Number.MAX_VALUE) / innerRect.width
+    )
+  }, [innerRect, maxScale, maxHeight, maxWidth, outerRect])
 
-  const applyResize = (entries: any) => entries.forEach((entry: any) => {
-    switch (entry.target) {
-      case innerRef.current:
-        setInnerRect(entry.contentRect);
-        break;
-      case outerRef.current:
-        setOuterRect(entry.contentRect);
-        break;
-    }
-  });
+  const applyResize = (entries: any) =>
+    entries.forEach((entry: any) => {
+      switch (entry.target) {
+        case innerRef.current:
+          setInnerRect(entry.contentRect)
+          break
+        case outerRef.current:
+          setOuterRect(entry.contentRect)
+          break
+      }
+    })
 
   useEffect(() => {
     const observer = new ResizeObserver((entries: any) => {
       if (!Array.isArray(entries)) {
-        return;
+        return
       }
 
       if (safeMode) {
         window.requestAnimationFrame(() => {
-          applyResize(entries);
-        });
+          applyResize(entries)
+        })
       } else {
-        applyResize(entries);
+        applyResize(entries)
       }
-    });
+    })
 
-    observer.observe(innerRef.current!);
-    observer.observe(outerRef.current!);
+    observer.observe(innerRef.current!)
+    observer.observe(outerRef.current!)
 
     return () => {
-      observer.disconnect();
-    };
-  }, [safeMode]);
+      observer.disconnect()
+    }
+  }, [safeMode])
 
-  const justifyContent = alignMap[align || ''] || 'space-around';
-  const alignItems = valignMap[valign || ''] || 'center';
+  const justifyContent = alignMap[align || ''] || 'space-around'
+  const alignItems = valignMap[valign || ''] || 'center'
 
   return (
     <div
@@ -95,20 +96,20 @@ export function PreserveRatio({
         justifyContent,
         margin: 0,
         overflow: 'hidden',
-        padding: 0,
+        padding: 0
       }}
     >
       <div
         ref={innerRef}
         style={{
           transform: `scale(${scale})`,
-          transformOrigin: `${valign || 'center'} ${align || 'center'}`,
+          transformOrigin: `${valign || 'center'} ${align || 'center'}`
         }}
       >
         {children}
       </div>
     </div>
-  );
+  )
 }
 
 PreserveRatio.propTypes = {
@@ -118,5 +119,5 @@ PreserveRatio.propTypes = {
   maxScale: PropTypes.number,
   maxWidth: PropTypes.number,
   safeMode: PropTypes.bool,
-  valign: PropTypes.string,
-};
+  valign: PropTypes.string
+}
