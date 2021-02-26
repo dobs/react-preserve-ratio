@@ -1,5 +1,15 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, {
+  createContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react'
 import * as PropTypes from 'prop-types'
+
+interface Context {
+  scale: number
+}
 
 interface Rect {
   height: number
@@ -17,6 +27,8 @@ const valignMap = {
   center: 'center',
   bottom: 'flex-end'
 }
+
+export const PreserveRatioContext = createContext<Context>({ scale: 1 })
 export function PreserveRatio({
   align,
   children,
@@ -106,7 +118,9 @@ export function PreserveRatio({
           transformOrigin: `${valign || 'center'} ${align || 'center'}`
         }}
       >
-        {children}
+        <PreserveRatioContext.Provider value={{ scale }}>
+          {children}
+        </PreserveRatioContext.Provider>
       </div>
     </div>
   )

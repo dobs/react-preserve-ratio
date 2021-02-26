@@ -22,7 +22,6 @@ yarn add react-preserve-ratio
 
 ```tsx
 import React, { Component } from 'react'
-
 import { PreserveRatio } from 'react-preserve-ratio'
 
 class Example extends Component {
@@ -61,21 +60,46 @@ class Example extends Component {
 
 ### Constraints
 
-* `maxScale` (optional number): The maximum scale for content relative to their real size.
-* `maxHeight` (optional number): The maximum height of content, in pixels.
-* `maxWidth` (optional number): The maximum width of content, in pixels.
+- `maxScale` (optional number): The maximum scale for content relative to their real size.
+- `maxHeight` (optional number): The maximum height of content, in pixels.
+- `maxWidth` (optional number): The maximum width of content, in pixels.
 
 `minScale`, `minHeight` and `minWidth` aren't currently supported in favor of having users control the `min-height` and `min-width` on the `PreserveRatio`'s container instead. This is largely due to how potentially tricky overflow cases can be and less-clear use cases.
 
 ### Alignment
 
-* `align` (optional string): Horizontal alignment, `center`, `left` or `right` (default: `center`).
-* `valign` (optional string): Vertical alignment, `center`, `top` or `bottom` (default: `center`).
+- `align` (optional string, default: `center`): Horizontal alignment, `center`, `left` or `right`.
+- `valign` (optional string, default: `center`): Vertical alignment, `center`, `top` or `bottom`.
 
 ### Safety
 
-* `safeMode` (optional bool): Attempt to reduce non-user-impacting `ResizeObserver` errors at the cost of latency (See: [StackOverflow](https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded))
+- `safeMode` (optional bool): Attempt to reduce non-user-impacting `ResizeObserver` errors at the cost of latency (See: [StackOverflow](https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded))
 
+## Context
+
+This package also includes `PreserveRatioContext` for child components interested in receiving scaling updates. Currently the context contains:
+
+- `scale` (number): The content scale, e.g. `1` when at 100% scale, `2` when at 200% scale, etc.
+
+Example usage w/ hooks:
+
+```tsx
+import React from 'react'
+import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio'
+
+function DisplayScale() {
+  const { scale } = useContext(PreserveRatioContext)
+  return <div>{scale}</div>
+}
+
+function Example() {
+  return (
+    <PreserveRatio>
+      <DisplayScale />
+    </PreserveRatio>
+  )
+}
+```
 
 ## Examples
 

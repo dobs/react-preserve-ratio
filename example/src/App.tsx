@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import * as PropTypes from 'prop-types'
 
-import { PreserveRatio } from 'react-preserve-ratio'
+import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio'
 import {
   Alert,
   AlertIcon,
@@ -41,6 +41,7 @@ function ResizableContainer({
       style={{
         border: '1px dotted rgba(0, 0, 0, 0.2)',
         display: 'block',
+        fontSize: '2em',
         height: '240px',
         overflow: 'hidden',
         resize: 'both',
@@ -56,6 +57,76 @@ ResizableContainer.propTypes = {
   children: PropTypes.node.isRequired
 }
 
+const DefaultContent = () => (
+  <div
+    style={{
+      alignItems: 'center',
+      backgroundColor: '#ddffdd',
+      display: 'flex',
+      height: '240px',
+      justifyContent: 'center',
+      width: '320px'
+    }}
+  >
+    Hello, world!
+  </div>
+)
+
+const ConstrainedContent = () => {
+  const { scale } = useContext(PreserveRatioContext)
+
+  let backgroundColor = '#ddffdd'
+  let face = '^_^'
+
+  if (scale > 1.49) {
+    backgroundColor = '#ffdddd'
+    face = '>_<'
+  } else if (scale > 1.1) {
+    backgroundColor = '#ffffdd'
+    face = 'O_O'
+  }
+
+  return (
+    <div
+      style={{
+        alignItems: 'center',
+        backgroundColor,
+        display: 'flex',
+        fontSize: '2em',
+        height: '240px',
+        justifyContent: 'center',
+        width: '320px',
+        transition: 'background 200ms'
+      }}
+    >
+      {face}
+    </div>
+  )
+}
+
+const ContextContent = () => {
+  const { scale } = useContext(PreserveRatioContext)
+
+  return (
+    <div
+      style={{
+        alignItems: 'center',
+        backgroundColor: '#ddffdd',
+        display: 'flex',
+        fontSize: '4em',
+        height: '240px',
+        justifyContent: 'center',
+        width: '320px',
+        transition: 'background 200ms'
+      }}
+    >
+      {new Intl.NumberFormat('en-US', { maximumSignificantDigits: 2 }).format(
+        scale
+      )}
+    </div>
+  )
+}
+
 const App = () => {
   const [alignment, setAlignment] = useState('center center')
   const [contentResizeRect, setContentResizeRect] = useState<Rect>({
@@ -69,8 +140,17 @@ const App = () => {
         margin: '1em'
       }}
     >
-      <Heading size='xl'>Examples: <Link href="https://github.com/dobs/react-preserve-ratio">react-preserve-ratio</Link></Heading>
-      <Alert status="warning"><AlertIcon />The component works on mobile but these examples currently don't. Stay tuned. :)</Alert>
+      <Heading size='xl'>
+        Examples:{' '}
+        <Link href='https://github.com/dobs/react-preserve-ratio'>
+          react-preserve-ratio
+        </Link>
+      </Heading>
+      <Alert status='warning'>
+        <AlertIcon />
+        The component works on mobile but these examples currently don't. Stay
+        tuned. :)
+      </Alert>
       <Heading size='lg'>Basic Example</Heading>
       <Text fontSize='md'>
         Try resizing the box below and notice how content automatically scales
@@ -78,18 +158,7 @@ const App = () => {
       </Text>
       <ResizableContainer>
         <PreserveRatio>
-          <div
-            style={{
-              alignItems: 'center',
-              backgroundColor: '#ffffdd',
-              display: 'flex',
-              height: '240px',
-              justifyContent: 'center',
-              width: '320px'
-            }}
-          >
-            Hello, world!
-          </div>
+          <DefaultContent />
         </PreserveRatio>
       </ResizableContainer>
 
@@ -97,23 +166,12 @@ const App = () => {
         Constraints Example
       </Heading>
       <Text>
-        This time the <Code>maxScale</Code> option is set to <Code>2</Code>,
-        limiting content to 2x its initial scale.
+        This time the <Code>maxScale</Code> option is set to <Code>1.5</Code>,
+        limiting content to 150% its initial scale.
       </Text>
       <ResizableContainer>
-        <PreserveRatio maxScale={2}>
-          <div
-            style={{
-              alignItems: 'center',
-              backgroundColor: '#ffffdd',
-              display: 'flex',
-              height: '240px',
-              justifyContent: 'center',
-              width: '320px'
-            }}
-          >
-            Hello, world!
-          </div>
+        <PreserveRatio maxScale={1.5}>
+          <ConstrainedContent />
         </PreserveRatio>
       </ResizableContainer>
       <Text>There are a few different constraint options:</Text>
@@ -203,11 +261,10 @@ const App = () => {
           <div
             style={{
               alignItems: 'center',
-              backgroundColor: '#ffffdd',
+              backgroundColor: '#ddffdd',
               display: 'flex',
               height: `${contentResizeRect.height}px`,
               justifyContent: 'center',
-              transition: 'width 200ms, height 200ms',
               width: `${contentResizeRect.width}px`
             }}
           >
@@ -286,19 +343,7 @@ const App = () => {
           align={alignment.split(' ')[1]}
           valign={alignment.split(' ')[0]}
         >
-          <div
-            style={{
-              alignItems: 'center',
-              backgroundColor: '#ffffdd',
-              display: 'flex',
-              height: `240px`,
-              justifyContent: 'center',
-              transition: 'width 200ms, height 200ms',
-              width: `320px`
-            }}
-          >
-            Hello, world!
-          </div>
+          <DefaultContent />
         </PreserveRatio>
       </ResizableContainer>
 
@@ -327,7 +372,7 @@ const App = () => {
           <div
             style={{
               alignItems: 'center',
-              backgroundColor: '#ffffdd',
+              backgroundColor: '#ddffdd',
               display: 'flex',
               height: '240px',
               justifyContent: 'center',
@@ -336,6 +381,19 @@ const App = () => {
           >
             Hello, world!
           </div>
+        </PreserveRatio>
+      </ResizableContainer>
+
+      <Heading size='lg' mt={4} mb={3}>
+        Context Example
+      </Heading>
+      <Text>
+        <code>PreserveRatioContext</code> for child components that care about
+        the current scale.
+      </Text>
+      <ResizableContainer>
+        <PreserveRatio safeMode>
+          <ContextContent />
         </PreserveRatio>
       </ResizableContainer>
 
@@ -359,18 +417,7 @@ const App = () => {
         }}
       >
         <PreserveRatio>
-          <div
-            style={{
-              alignItems: 'center',
-              backgroundColor: '#ffffdd',
-              display: 'flex',
-              height: '240px',
-              justifyContent: 'center',
-              width: '320px'
-            }}
-          >
-            Hello, world!
-          </div>
+          <DefaultContent />
         </PreserveRatio>
       </div>
     </div>
