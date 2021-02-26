@@ -389,7 +389,7 @@ const App = () => {
         Context Example
       </Heading>
       <Text>
-        <code>PreserveRatioContext</code> for child components that care about
+        <Code>PreserveRatioContext</Code> for child components that care about
         the current scale.
       </Text>
       <ResizableContainer>
