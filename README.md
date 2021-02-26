@@ -10,6 +10,12 @@
 npm install --save react-preserve-ratio
 ```
 
+Or for yarn:
+
+```bash
+yarn add react-preserve-ratio
+```
+
 ## Usage
 
 ```tsx
