@@ -3,6 +3,8 @@ import * as PropTypes from 'prop-types'
 
 import { PreserveRatio } from 'react-preserve-ratio'
 import {
+  Alert,
+  AlertIcon,
   Button,
   Code,
   Flex,
@@ -67,7 +69,8 @@ const App = () => {
         margin: '1em'
       }}
     >
-      <Heading size='xl'>Examples: react-preserve-scale</Heading>
+      <Heading size='xl'>Examples: <Link href="https://github.com/dobs/react-preserve-ratio">react-preserve-ratio</Link></Heading>
+      <Alert status="warning"><AlertIcon />The component works on mobile but these examples currently don't. Stay tuned. :)</Alert>
       <Heading size='lg'>Basic Example</Heading>
       <Text fontSize='md'>
         Try resizing the box below and notice how content automatically scales
