@@ -6,22 +6,25 @@ interface Rect {
   width: number;
 }
 
-const baseStyles = {
-  alignItems: 'center',
-  border: 'none',
-  display: 'flex',
-  justifyContent: 'space-around',
-  margin: 0,
-  overflow: 'hidden',
-  padding: 0,
-};
+const alignMap = {
+  left: 'flex-start',
+  center: 'space-around',
+  right: 'flex-end',
+}
 
+const valignMap = {
+  top: 'flex-start',
+  center: 'center',
+  bottom: 'flex-end',
+}
 export function PreserveRatio({
+  align,
   children,
   maxHeight,
   maxScale,
   maxWidth,
   safeMode,
+  valign,
 }: PropTypes.InferProps<typeof PreserveRatio.propTypes>) {
   const innerRef = useRef(null);
   const outerRef = useRef(null);
@@ -77,19 +80,29 @@ export function PreserveRatio({
     };
   }, [safeMode]);
 
+  const justifyContent = alignMap[align || ''] || 'space-around';
+  const alignItems = valignMap[valign || ''] || 'center';
+
   return (
     <div
       ref={outerRef}
       style={{
         height: '100%',
         width: '100%',
-        ...baseStyles,
+        alignItems,
+        border: 'none',
+        display: 'flex',
+        justifyContent,
+        margin: 0,
+        overflow: 'hidden',
+        padding: 0,
       }}
     >
       <div
         ref={innerRef}
         style={{
           transform: `scale(${scale})`,
+          transformOrigin: `${valign || 'center'} ${align || 'center'}`,
         }}
       >
         {children}
@@ -99,9 +112,11 @@ export function PreserveRatio({
 }
 
 PreserveRatio.propTypes = {
+  align: PropTypes.string,
   children: PropTypes.node.isRequired,
   maxHeight: PropTypes.number,
   maxScale: PropTypes.number,
   maxWidth: PropTypes.number,
   safeMode: PropTypes.bool,
+  valign: PropTypes.string,
 };

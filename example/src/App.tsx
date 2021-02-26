@@ -8,6 +8,11 @@ interface Rect {
   width: number
 }
 
+interface Alignment {
+  align: string
+  valign: string
+}
+
 function ResizableContainer({
   children
 }: PropTypes.InferProps<typeof ResizableContainer.propTypes>) {
@@ -32,10 +37,15 @@ ResizableContainer.propTypes = {
 }
 
 const App = () => {
+  const [alignment, setAlignment] = useState<Alignment>({
+    align: 'center',
+    valign: 'center'
+  })
   const [contentResizeRect, setContentResizeRect] = useState<Rect>({
     width: 320,
     height: 240
   })
+
   return (
     <div
       style={{
@@ -109,8 +119,7 @@ const App = () => {
 
       <h2>Content Resizing Example</h2>
       <p>
-        Content is also automatically scaled when content dimensions change. Try
-        using the buttons below to change the content box's size.
+        Content is also automatically scaled when content dimensions change.
       </p>
       <p>
         <button
@@ -128,9 +137,117 @@ const App = () => {
         >
           Tall
         </button>
+        |
+        <input
+          type='number'
+          max='999'
+          min='1'
+          value={contentResizeRect.width}
+          onChange={(e) =>
+            setContentResizeRect({
+              width: parseInt(e.target.value),
+              height: contentResizeRect.height
+            })
+          }
+        />
+        x
+        <input
+          type='number'
+          max='999'
+          min='1'
+          value={contentResizeRect.height}
+          onChange={(e) =>
+            setContentResizeRect({
+              width: contentResizeRect.width,
+              height: parseInt(e.target.value)
+            })
+          }
+        />
       </p>
       <ResizableContainer>
         <PreserveRatio>
+          <div
+            style={{
+              alignItems: 'center',
+              backgroundColor: '#ffffdd',
+              display: 'flex',
+              height: `${contentResizeRect.height}px`,
+              justifyContent: 'center',
+              transition: 'width 200ms, height 200ms',
+              width: `${contentResizeRect.width}px`
+            }}
+          >
+            Hello, world!
+          </div>
+        </PreserveRatio>
+      </ResizableContainer>
+
+      <h2>Alignment Example</h2>
+      <p>
+        Components also support horizontal and vertical alignment via{' '}
+        <code>align</code> and <code>valign</code> respectively.
+      </p>
+      <p>
+        <button
+          className='arrow-button'
+          onClick={() => setAlignment({ align: 'left', valign: 'top' })}
+        >
+          ↖️
+        </button>
+        <button
+          className='arrow-button'
+          onClick={() => setAlignment({ align: 'center', valign: 'top' })}
+        >
+          ⬆️
+        </button>
+        <button
+          className='arrow-button'
+          onClick={() => setAlignment({ align: 'right', valign: 'top' })}
+        >
+          ↗️
+        </button>
+        <br />
+        <button
+          className='arrow-button'
+          onClick={() => setAlignment({ align: 'left', valign: 'center' })}
+        >
+          ⬅️
+        </button>
+        <button
+          className='arrow-button'
+          onClick={() => setAlignment({ align: 'center', valign: 'center' })}
+        >
+          ⏺
+        </button>
+        <button
+          className='arrow-button'
+          onClick={() => setAlignment({ align: 'right', valign: 'center' })}
+        >
+          ➡️
+        </button>
+        <br />
+        <button
+          className='arrow-button'
+          onClick={() => setAlignment({ align: 'left', valign: 'bottom' })}
+        >
+          ↙️
+        </button>
+        <button
+          className='arrow-button'
+          onClick={() => setAlignment({ align: 'center', valign: 'bottom' })}
+        >
+          ⬇️
+        </button>
+        <button
+          className='arrow-button'
+          onClick={() => setAlignment({ align: 'right', valign: 'bottom' })}
+        >
+          ↘️
+        </button>
+      </p>
+
+      <ResizableContainer>
+        <PreserveRatio align={alignment.align} valign={alignment.valign}>
           <div
             style={{
               alignItems: 'center',
