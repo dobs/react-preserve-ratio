@@ -127,11 +127,11 @@ export function PreserveRatio({
 }
 
 PreserveRatio.propTypes = {
-  align: PropTypes.string,
+  align: PropTypes.oneOf(['left', 'center', 'right']),
   children: PropTypes.node.isRequired,
   maxHeight: PropTypes.number,
   maxScale: PropTypes.number,
   maxWidth: PropTypes.number,
   safeMode: PropTypes.bool,
-  valign: PropTypes.string
+  valign: PropTypes.oneOf(['top', 'center', 'bottom'])
 }

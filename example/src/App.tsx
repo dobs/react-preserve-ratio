@@ -43,6 +43,7 @@ function ResizableContainer({
         display: 'block',
         fontSize: '2em',
         height: '240px',
+        maxWidth: '100%',
         overflow: 'hidden',
         resize: 'both',
         width: '640px'
@@ -76,7 +77,7 @@ const ConstrainedContent = () => {
   const { scale } = useContext(PreserveRatioContext)
 
   let backgroundColor = '#ddffdd'
-  let face = '^_^'
+  let face = '^o^'
 
   if (scale > 1.49) {
     backgroundColor = '#ffdddd'
@@ -84,6 +85,8 @@ const ConstrainedContent = () => {
   } else if (scale > 1.1) {
     backgroundColor = '#ffffdd'
     face = 'O_O'
+  } else if (scale > 0.5) {
+    face = '^_^'
   }
 
   return (
@@ -99,7 +102,7 @@ const ConstrainedContent = () => {
         transition: 'background 200ms'
       }}
     >
-      {face}
+      <code>{face}</code>
     </div>
   )
 }
@@ -289,10 +292,12 @@ const App = () => {
       >
         <Table w='320px'>
           <Thead>
-            <Td></Td>
-            <Td>Left</Td>
-            <Td>Center</Td>
-            <Td>Right</Td>
+            <Tr>
+              <Td></Td>
+              <Td>Left</Td>
+              <Td>Center</Td>
+              <Td>Right</Td>
+            </Tr>
           </Thead>
           <Tbody>
             <Tr>
