@@ -3,7 +3,7 @@ export default {
     Alert: {
       baseStyle: {
         container: {
-          my: 3,
+          my: 4,
           maxW: '640px'
         }
       }
@@ -16,7 +16,7 @@ export default {
     Heading: {
       sizes: {
         lg: {
-          mt: 5,
+          mt: 10,
           mb: 3
         }
       }

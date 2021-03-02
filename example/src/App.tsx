@@ -165,7 +165,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableContainer>
 
-      <Heading size='lg' mt={4} mb={3}>
+      <Heading size='lg'>
         Constraints Example
       </Heading>
       <Text>
@@ -198,7 +198,7 @@ const App = () => {
         <Code>min-width</Code> and <Code>min-height</Code> on the container.
       </Text>
 
-      <Heading size='lg' mt={4} mb={3}>
+      <Heading size='lg'>
         Content Resizing Example
       </Heading>
       <Text>
@@ -277,7 +277,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableContainer>
 
-      <Heading size='lg' mt={4} mb={3}>
+      <Heading size='lg'>
         Alignment Example
       </Heading>
       <Text>
@@ -353,7 +353,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableContainer>
 
-      <Heading size='lg' mt={4} mb={3}>
+      <Heading size='lg'>
         Safe Mode Example
       </Heading>
       <Text>
@@ -390,7 +390,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableContainer>
 
-      <Heading size='lg' mt={4} mb={3}>
+      <Heading size='lg'>
         Context Example
       </Heading>
       <Text>
@@ -403,7 +403,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableContainer>
 
-      <Heading size='lg' mt={4} mb={3}>
+      <Heading size='lg'>
         Window Scaling Example
       </Heading>
       <Text>
