@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react'
-import * as PropTypes from 'prop-types'
+import { ResizableBox } from 'react-resizable'
 
 import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio'
 import {
-  Alert,
-  AlertIcon,
   Button,
   Code,
   Flex,
@@ -31,31 +29,6 @@ import {
 interface Rect {
   height: number
   width: number
-}
-
-function ResizableContainer({
-  children
-}: PropTypes.InferProps<typeof ResizableContainer.propTypes>) {
-  return (
-    <div
-      style={{
-        border: '1px dotted rgba(0, 0, 0, 0.2)',
-        display: 'block',
-        fontSize: '2em',
-        height: '240px',
-        maxWidth: '100%',
-        overflow: 'hidden',
-        resize: 'both',
-        width: '640px'
-      }}
-    >
-      {children}
-    </div>
-  )
-}
-
-ResizableContainer.propTypes = {
-  children: PropTypes.node.isRequired
 }
 
 const DefaultContent = () => (
@@ -149,21 +122,16 @@ const App = () => {
           react-preserve-ratio
         </Link>
       </Heading>
-      <Alert status='warning'>
-        <AlertIcon />
-        The component works on mobile but these examples currently don't. Stay
-        tuned. :)
-      </Alert>
       <Heading size='lg'>Basic Example</Heading>
       <Text fontSize='md'>
         Try resizing the box below and notice how content automatically scales
         while maintaining its ratio.
       </Text>
-      <ResizableContainer>
+      <ResizableBox width={640} height={240}>
         <PreserveRatio>
           <DefaultContent />
         </PreserveRatio>
-      </ResizableContainer>
+      </ResizableBox>
 
       <Heading size='lg'>
         Constraints Example
@@ -172,11 +140,11 @@ const App = () => {
         This time the <Code>maxScale</Code> option is set to <Code>1.5</Code>,
         limiting content to 150% its initial scale.
       </Text>
-      <ResizableContainer>
+      <ResizableBox width={640} height={240}>
         <PreserveRatio maxScale={1.5}>
           <ConstrainedContent />
         </PreserveRatio>
-      </ResizableContainer>
+      </ResizableBox>
       <Text>There are a few different constraint options:</Text>
       <UnorderedList>
         <ListItem>
@@ -259,7 +227,7 @@ const App = () => {
           </NumberInputStepper>
         </NumberInput>
       </Flex>
-      <ResizableContainer>
+      <ResizableBox width={640} height={240}>
         <PreserveRatio>
           <div
             style={{
@@ -275,7 +243,7 @@ const App = () => {
             Hello, world!
           </div>
         </PreserveRatio>
-      </ResizableContainer>
+      </ResizableBox>
 
       <Heading size='lg'>
         Alignment Example
@@ -344,14 +312,14 @@ const App = () => {
         </Table>
       </RadioGroup>
 
-      <ResizableContainer>
+      <ResizableBox width={640} height={240}>
         <PreserveRatio
           align={alignment.split(' ')[1]}
           valign={alignment.split(' ')[0]}
         >
           <DefaultContent />
         </PreserveRatio>
-      </ResizableContainer>
+      </ResizableBox>
 
       <Heading size='lg'>
         Safe Mode Example
@@ -373,7 +341,7 @@ const App = () => {
         </Link>{' '}
         for more detail.
       </Text>
-      <ResizableContainer>
+      <ResizableBox width={640} height={240}>
         <PreserveRatio safeMode>
           <div
             style={{
@@ -388,7 +356,7 @@ const App = () => {
             Hello, world!
           </div>
         </PreserveRatio>
-      </ResizableContainer>
+      </ResizableBox>
 
       <Heading size='lg'>
         Context Example
@@ -397,11 +365,11 @@ const App = () => {
         <Code>PreserveRatioContext</Code> for child components that care about
         the current scale.
       </Text>
-      <ResizableContainer>
+      <ResizableBox width={640} height={240}>
         <PreserveRatio safeMode>
           <ContextContent />
         </PreserveRatio>
-      </ResizableContainer>
+      </ResizableBox>
 
       <Heading size='lg'>
         Window Scaling Example
