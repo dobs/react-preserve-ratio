@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { ResizableBox } from 'react-resizable'
 
 import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio'

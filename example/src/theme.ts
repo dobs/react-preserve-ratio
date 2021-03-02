@@ -1,4 +1,4 @@
-export default {
+const theme = {
   components: {
     Alert: {
       baseStyle: {
@@ -44,3 +44,5 @@ export default {
     }
   }
 }
+
+export default theme;
