@@ -366,7 +366,7 @@ const App = () => {
         the current scale.
       </Text>
       <ResizableBox width={640} height={240}>
-        <PreserveRatio safeMode>
+        <PreserveRatio>
           <ContextContent />
         </PreserveRatio>
       </ResizableBox>
