@@ -31,7 +31,7 @@ interface Rect {
   width: number
 }
 
-const DefaultContent = () => (
+const DefaultContent = ({ children }: { children?: any }) => (
   <div
     style={{
       alignItems: 'center',
@@ -42,43 +42,9 @@ const DefaultContent = () => (
       width: '320px'
     }}
   >
-    Hello, world!
+    {children || 'Hello, world!'}
   </div>
 )
-
-const ConstrainedContent = () => {
-  const { scale } = useContext(PreserveRatioContext)
-
-  let backgroundColor = '#ddffdd'
-  let face = '^o^'
-
-  if (scale > 1.49) {
-    backgroundColor = '#ffdddd'
-    face = '>_<'
-  } else if (scale > 1.1) {
-    backgroundColor = '#ffffdd'
-    face = 'O_O'
-  } else if (scale > 0.5) {
-    face = '^_^'
-  }
-
-  return (
-    <div
-      style={{
-        alignItems: 'center',
-        backgroundColor,
-        display: 'flex',
-        fontSize: '2em',
-        height: '240px',
-        justifyContent: 'center',
-        width: '320px',
-        transition: 'background 200ms'
-      }}
-    >
-      <code>{face}</code>
-    </div>
-  )
-}
 
 const ContextContent = () => {
   const { scale } = useContext(PreserveRatioContext)
@@ -133,16 +99,14 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>
-        Constraints Example
-      </Heading>
+      <Heading size='lg'>Constraints Example</Heading>
       <Text>
-        This time the <Code>maxScale</Code> option is set to <Code>1.5</Code>,
-        limiting content to 150% its initial scale.
+        This time we pass in a <Code>maxScale</Code> prop to restrict the
+        content's maximum size.
       </Text>
       <ResizableBox width={640} height={240}>
-        <PreserveRatio maxScale={1.5}>
-          <ConstrainedContent />
+        <PreserveRatio maxScale={1}>
+          <DefaultContent />
         </PreserveRatio>
       </ResizableBox>
       <Text>There are a few different constraint options:</Text>
@@ -166,18 +130,11 @@ const App = () => {
         <Code>min-width</Code> and <Code>min-height</Code> on the container.
       </Text>
 
-      <Heading size='lg'>
-        Content Resizing Example
-      </Heading>
+      <Heading size='lg'>Content Resizing Example</Heading>
       <Text>
         Content is also automatically scaled when content dimensions change.
       </Text>
-      <Flex my={2} w='640px'>
-        <Button
-          onClick={() => setContentResizeRect({ width: 320, height: 240 })}
-        >
-          Default
-        </Button>
+      <Flex my={2} maxW='640px'>
         <Button
           onClick={() => setContentResizeRect({ width: 480, height: 240 })}
         >
@@ -245,9 +202,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>
-        Alignment Example
-      </Heading>
+      <Heading size='lg'>Alignment Example</Heading>
       <Text>
         Components also support horizontal and vertical alignment via{' '}
         <Code>align</Code> and <Code>valign</Code> respectively.
@@ -321,9 +276,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>
-        Safe Mode Example
-      </Heading>
+      <Heading size='lg'>Safe Mode Example</Heading>
       <Text>
         If elements are resized too quickly it can result in non-user-impacting
         errors. Where this could become a problem is if you're using a frontend
@@ -358,9 +311,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>
-        Context Example
-      </Heading>
+      <Heading size='lg'>Context Example</Heading>
       <Text>
         <Code>PreserveRatioContext</Code> for child components that care about
         the current scale.
@@ -371,9 +322,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>
-        Window Scaling Example
-      </Heading>
+      <Heading size='lg'>Window Scaling Example</Heading>
       <Text>
         A typical use case is having content scale to fill the current window,
         for example when displaying a slide as part of a slide show.
