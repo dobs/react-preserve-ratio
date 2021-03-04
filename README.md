@@ -4,7 +4,7 @@
 
 For example, how slideshow slides automatically scale to fit a window or screen without distorting. See the [interactive examples](https://dobs.github.io/react-preserve-ratio/) for a demo!
 
-[![NPM](https://img.shields.io/npm/v/react-preserve-ratio.svg)](https://www.npmjs.com/package/react-preserve-ratio) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![CI](https://github.com/dobs/react-preserve-ratio/actions/workflows/main.yml/badge.svg)](https://github.com/dobs/react-preserve-ratio/actions/workflows/main.yml)
+[![NPM](https://img.shields.io/npm/v/react-preserve-ratio.svg)](https://www.npmjs.com/package/react-preserve-ratio) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![CI](https://github.com/dobs/react-preserve-ratio/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/dobs/react-preserve-ratio/actions/workflows/main.yml)
 
 ## Install
 
