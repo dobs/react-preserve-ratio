@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from 'react'
+import { createContext, useEffect, useMemo, useRef, useState } from 'react'
 import * as PropTypes from 'prop-types'
 
 interface Context {
