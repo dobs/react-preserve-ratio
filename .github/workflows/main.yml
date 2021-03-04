@@ -16,8 +16,6 @@ jobs:
           node-version: '15'
       - name: Installing dependencies.
         run: yarn install
-      - name: Test and lint.
-        run: yarn test
       - name: Building.
         run: yarn build
       - name: Installing examples dependencies.
@@ -28,3 +26,5 @@ jobs:
         run: |
           cd example
           yarn build
+      - name: Test and lint.
+        run: yarn test
