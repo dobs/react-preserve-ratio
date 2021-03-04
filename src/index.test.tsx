@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import { PreserveRatio } from '.'
 
-describe('ExampleComponent', () => {
+describe('PreserveRatio', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(PreserveRatio).toBeTruthy()
   })
 })

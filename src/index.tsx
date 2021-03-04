@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from 'react'
+import { createContext, useEffect, useMemo, useRef, useState } from 'react'
 import * as PropTypes from 'prop-types'
 
 interface Context {
@@ -45,7 +39,7 @@ export function PreserveRatio({
   const [outerRect, setOuterRect] = useState<Rect>({ width: 0, height: 0 })
 
   const scale = useMemo(() => {
-    let dynamicScale = Math.min(
+    const dynamicScale = Math.min(
       outerRect.width / innerRect.width,
       outerRect.height / innerRect.height
     )
