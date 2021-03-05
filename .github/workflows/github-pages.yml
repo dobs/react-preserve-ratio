@@ -1,9 +1,7 @@
-name: CI
+name: Github Pages
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
   workflow_dispatch:
 jobs:
@@ -30,8 +28,6 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
       - name: Installing dependencies.
         run: yarn install
-      - name: Building.
-        run: yarn build
       - name: Installing examples dependencies.
         run: |
           cd example
@@ -40,5 +36,8 @@ jobs:
         run: |
           cd example
           yarn build
-      - name: Test and lint.
-        run: yarn test
+      - name: Publishing to Github Pages.
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: example/build
