@@ -26,18 +26,17 @@ jobs:
         with:
           path: example/node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-      - name: Installing dependencies.
-        run: yarn install
-      - name: Installing examples dependencies.
+      - name: Building library.
         run: |
-          cd example
           yarn install
+          yarn build
       - name: Building examples.
         run: |
           cd example
+          yarn install
           yarn build
       - name: Publishing to Github Pages.
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
-          folder: example/build
+          folder: example/dist

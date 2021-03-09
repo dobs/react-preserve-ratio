@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react'
+import * as React from 'react';
 import { ResizableBox } from 'react-resizable'
 
-import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio'
+import { Align, PreserveRatio, PreserveRatioContext, VAlign } from './..'
 import {
   Button,
   Code,
@@ -47,7 +47,7 @@ const DefaultContent = ({ children }: { children?: any }) => (
 )
 
 const ContextContent = () => {
-  const { scale } = useContext(PreserveRatioContext)
+  const { scale } = React.useContext(PreserveRatioContext)
 
   return (
     <div
@@ -70,8 +70,8 @@ const ContextContent = () => {
 }
 
 const App = () => {
-  const [alignment, setAlignment] = useState('center center')
-  const [contentResizeRect, setContentResizeRect] = useState<Rect>({
+  const [alignment, setAlignment] = React.useState('center center')
+  const [contentResizeRect, setContentResizeRect] = React.useState<Rect>({
     width: 320,
     height: 240
   })
@@ -269,8 +269,8 @@ const App = () => {
 
       <ResizableBox width={640} height={240}>
         <PreserveRatio
-          align={alignment.split(' ')[1]}
-          valign={alignment.split(' ')[0]}
+          align={alignment.split(' ')[1] as Align}
+          valign={alignment.split(' ')[0] as VAlign}
         >
           <DefaultContent />
         </PreserveRatio>
