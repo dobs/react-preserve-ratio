@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { ResizableBox } from 'react-resizable'
+import { ResizableBox } from 'react-resizable';
 
-import { Align, PreserveRatio, PreserveRatioContext, VAlign } from './..'
+import { Align, PreserveRatio, PreserveRatioContext, VAlign } from './..';
 import {
   Button,
   Code,
@@ -23,12 +23,12 @@ import {
   Text,
   Thead,
   Tr,
-  UnorderedList
-} from '@chakra-ui/react'
+  UnorderedList,
+} from '@chakra-ui/react';
 
 interface Rect {
-  height: number
-  width: number
+  height: number;
+  width: number;
 }
 
 const DefaultContent = ({ children }: { children?: any }) => (
@@ -39,15 +39,15 @@ const DefaultContent = ({ children }: { children?: any }) => (
       display: 'flex',
       height: '240px',
       justifyContent: 'center',
-      width: '320px'
+      width: '320px',
     }}
   >
     {children || 'Hello, world!'}
   </div>
-)
+);
 
 const ContextContent = () => {
-  const { scale } = React.useContext(PreserveRatioContext)
+  const { scale } = React.useContext(PreserveRatioContext);
 
   return (
     <div
@@ -59,37 +59,37 @@ const ContextContent = () => {
         height: '240px',
         justifyContent: 'center',
         width: '320px',
-        transition: 'background 200ms'
+        transition: 'background 200ms',
       }}
     >
       {new Intl.NumberFormat('en-US', { maximumSignificantDigits: 2 }).format(
         scale
       )}
     </div>
-  )
-}
+  );
+};
 
 const App = () => {
-  const [alignment, setAlignment] = React.useState('center center')
+  const [alignment, setAlignment] = React.useState('center center');
   const [contentResizeRect, setContentResizeRect] = React.useState<Rect>({
     width: 320,
-    height: 240
-  })
+    height: 240,
+  });
 
   return (
     <div
       style={{
-        margin: '1em'
+        margin: '1em',
       }}
     >
-      <Heading size='xl'>
+      <Heading size="xl">
         Examples:{' '}
-        <Link href='https://github.com/dobs/react-preserve-ratio'>
+        <Link href="https://github.com/dobs/react-preserve-ratio">
           react-preserve-ratio
         </Link>
       </Heading>
-      <Heading size='lg'>Basic Example</Heading>
-      <Text fontSize='md'>
+      <Heading size="lg">Basic Example</Heading>
+      <Text fontSize="md">
         Try resizing the box below and notice how content automatically scales
         while maintaining its ratio.
       </Text>
@@ -99,7 +99,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>Constraints Example</Heading>
+      <Heading size="lg">Constraints Example</Heading>
       <Text>
         This time we pass in a <Code>maxScale</Code> prop to restrict the
         content's maximum size.
@@ -130,11 +130,11 @@ const App = () => {
         <Code>min-width</Code> and <Code>min-height</Code> on the container.
       </Text>
 
-      <Heading size='lg'>Content Resizing Example</Heading>
+      <Heading size="lg">Content Resizing Example</Heading>
       <Text>
         Content is also automatically scaled when content dimensions change.
       </Text>
-      <Flex my={2} maxW='640px'>
+      <Flex my={2} maxW="640px">
         <Button
           onClick={() => setContentResizeRect({ width: 480, height: 240 })}
         >
@@ -152,10 +152,10 @@ const App = () => {
           min={1}
           max={999}
           value={contentResizeRect.width}
-          onChange={(v) =>
+          onChange={v =>
             setContentResizeRect({
               width: parseInt(v),
-              height: contentResizeRect.height
+              height: contentResizeRect.height,
             })
           }
         >
@@ -170,10 +170,10 @@ const App = () => {
           min={1}
           max={999}
           value={contentResizeRect.height}
-          onChange={(v) =>
+          onChange={v =>
             setContentResizeRect({
               width: contentResizeRect.width,
-              height: parseInt(v)
+              height: parseInt(v),
             })
           }
         >
@@ -194,7 +194,7 @@ const App = () => {
               height: `${contentResizeRect.height}px`,
               justifyContent: 'center',
               transition: 'width 200ms, height 200ms',
-              width: `${contentResizeRect.width}px`
+              width: `${contentResizeRect.width}px`,
             }}
           >
             Hello, world!
@@ -202,7 +202,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>Alignment Example</Heading>
+      <Heading size="lg">Alignment Example</Heading>
       <Text>
         Components also support horizontal and vertical alignment via{' '}
         <Code>align</Code> and <Code>valign</Code> respectively.
@@ -210,10 +210,10 @@ const App = () => {
 
       <RadioGroup
         my={2}
-        onChange={(v) => setAlignment(v.toString())}
+        onChange={v => setAlignment(v.toString())}
         value={alignment}
       >
-        <Table w='320px'>
+        <Table w="320px">
           <Thead>
             <Tr>
               <Td></Td>
@@ -224,43 +224,43 @@ const App = () => {
           </Thead>
           <Tbody>
             <Tr>
-              <Td textAlign='right'>Top</Td>
+              <Td textAlign="right">Top</Td>
               <Td>
-                <Radio value='top left' />
+                <Radio value="top left" />
               </Td>
               <Td>
-                <Radio value='top center' />
+                <Radio value="top center" />
               </Td>
               <Td>
-                <Radio value='top right' />
-              </Td>
-            </Tr>
-          </Tbody>
-          <Tbody>
-            <Tr>
-              <Td textAlign='right'>Center</Td>
-              <Td>
-                <Radio value='center left' />
-              </Td>
-              <Td>
-                <Radio value='center center' />
-              </Td>
-              <Td>
-                <Radio value='center right' />
+                <Radio value="top right" />
               </Td>
             </Tr>
           </Tbody>
           <Tbody>
             <Tr>
-              <Td textAlign='right'>Bottom</Td>
+              <Td textAlign="right">Center</Td>
               <Td>
-                <Radio value='bottom left' />
+                <Radio value="center left" />
               </Td>
               <Td>
-                <Radio value='bottom center' />
+                <Radio value="center center" />
               </Td>
               <Td>
-                <Radio value='bottom right' />
+                <Radio value="center right" />
+              </Td>
+            </Tr>
+          </Tbody>
+          <Tbody>
+            <Tr>
+              <Td textAlign="right">Bottom</Td>
+              <Td>
+                <Radio value="bottom left" />
+              </Td>
+              <Td>
+                <Radio value="bottom center" />
+              </Td>
+              <Td>
+                <Radio value="bottom right" />
               </Td>
             </Tr>
           </Tbody>
@@ -276,7 +276,28 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>Safe Mode Example</Heading>
+      <Heading size="lg">Cover Example</Heading>
+      <Text>
+        By default <Code>PreserveReactRatio</Code> sizes contents so that it's
+        "contained" by the container, but can optionally have them "cover"
+        instead.
+      </Text>
+      <Text>
+        This is useful when the intention is to use contents like a background,
+        and is similar to how{' '}
+        <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">
+          <Code>background-size</Code> handles "contain" vs. "cover" in CSS
+        </Link>
+        .
+      </Text>
+
+      <ResizableBox width={640} height={240}>
+        <PreserveRatio cover>
+          <DefaultContent />
+        </PreserveRatio>
+      </ResizableBox>
+
+      <Heading size="lg">Safe Mode Example</Heading>
       <Text>
         If elements are resized too quickly it can result in non-user-impacting
         errors. Where this could become a problem is if you're using a frontend
@@ -289,7 +310,7 @@ const App = () => {
       </Text>
       <Text>
         See{' '}
-        <Link href='https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded'>
+        <Link href="https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded">
           this StackOverflow thread
         </Link>{' '}
         for more detail.
@@ -303,7 +324,7 @@ const App = () => {
               display: 'flex',
               height: '240px',
               justifyContent: 'center',
-              width: '320px'
+              width: '320px',
             }}
           >
             Hello, world!
@@ -311,7 +332,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>Context Example</Heading>
+      <Heading size="lg">Context Example</Heading>
       <Text>
         <Code>PreserveRatioContext</Code> for child components that care about
         the current scale.
@@ -322,7 +343,7 @@ const App = () => {
         </PreserveRatio>
       </ResizableBox>
 
-      <Heading size='lg'>Window Scaling Example</Heading>
+      <Heading size="lg">Window Scaling Example</Heading>
       <Text>
         A typical use case is having content scale to fill the current window,
         for example when displaying a slide as part of a slide show.
@@ -336,7 +357,7 @@ const App = () => {
         style={{
           border: '1px dotted rgba(0, 0, 0, 0.2)',
           height: 'calc(100vh - 2em)',
-          width: '100%'
+          width: '100%',
         }}
       >
         <PreserveRatio>
@@ -344,7 +365,7 @@ const App = () => {
         </PreserveRatio>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

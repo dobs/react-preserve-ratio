@@ -21,8 +21,8 @@ yarn add react-preserve-ratio
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
-import { PreserveRatio } from 'react-preserve-ratio'
+import React, { Component } from 'react';
+import { PreserveRatio } from 'react-preserve-ratio';
 
 class Example extends Component {
   render() {
@@ -33,7 +33,7 @@ class Example extends Component {
           display: 'block',
           overflow: 'hidden',
           resize: 'both',
-          width: '640px'
+          width: '640px',
         }}
       >
         <PreserveRatio>
@@ -44,14 +44,14 @@ class Example extends Component {
               width: '320px',
               height: '240px',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
             }}
           >
             Hello, world!
           </div>
         </PreserveRatio>
       </div>
-    )
+    );
   }
 }
 ```
@@ -70,6 +70,7 @@ class Example extends Component {
 
 - `align` (optional string, default: `center`): Horizontal alignment, `center`, `left` or `right`.
 - `valign` (optional string, default: `center`): Vertical alignment, `center`, `top` or `bottom`.
+- `cover` (optional boolean, default: `false`): Have content "cover" rather than be "contained".
 
 ### Safety
 
@@ -84,12 +85,12 @@ This package also includes `PreserveRatioContext` for child components intereste
 Example usage w/ hooks:
 
 ```tsx
-import React from 'react'
-import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio'
+import React from 'react';
+import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio';
 
 function DisplayScale() {
-  const { scale } = useContext(PreserveRatioContext)
-  return <div>{scale}</div>
+  const { scale } = useContext(PreserveRatioContext);
+  return <div>{scale}</div>;
 }
 
 function Example() {
@@ -97,7 +98,7 @@ function Example() {
     <PreserveRatio>
       <DisplayScale />
     </PreserveRatio>
-  )
+  );
 }
 ```
 

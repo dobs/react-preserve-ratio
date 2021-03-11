@@ -39,6 +39,7 @@ export const PreserveRatioContext = createContext<Context>({ scale: 1 });
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   align?: Align;
   children: ReactChild;
+  cover?: boolean;
   maxHeight?: number;
   maxScale?: number;
   maxWidth?: number;
@@ -49,6 +50,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 export const PreserveRatio: FC<Props> = ({
   align,
   children,
+  cover,
   maxHeight,
   maxScale,
   maxWidth,
@@ -62,7 +64,9 @@ export const PreserveRatio: FC<Props> = ({
   const [outerRect, setOuterRect] = useState<Rect>({ width: 0, height: 0 });
 
   const scale = useMemo(() => {
-    const dynamicScale = Math.min(
+    const cmp = cover ? Math.max : Math.min;
+
+    const dynamicScale = cmp(
       outerRect.width / innerRect.width,
       outerRect.height / innerRect.height
     );
@@ -73,7 +77,7 @@ export const PreserveRatio: FC<Props> = ({
       (maxHeight || Number.MAX_VALUE) / innerRect.height,
       (maxWidth || Number.MAX_VALUE) / innerRect.width
     );
-  }, [innerRect, maxScale, maxHeight, maxWidth, outerRect]);
+  }, [cover, innerRect, maxScale, maxHeight, maxWidth, outerRect]);
 
   const applyResize = (entries: any) =>
     entries.forEach((entry: any) => {
