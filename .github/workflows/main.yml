@@ -19,14 +19,10 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-      - name: Cache example node modules.
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-example-node-modules
-        with:
-          path: example/node_modules
+          path: |
+            node_modules
+            example/node_modules
+            /home/runner/.cache/Cypress
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
       - name: Installing dependencies.
         run: yarn install
@@ -42,6 +38,10 @@ jobs:
           yarn build
       - name: Testing.
         run: yarn test
+      - name: Testing examples.
+        run: |
+          cd example
+          yarn test
       - name: Linting.
         run: yarn lint
       - name: Checking size.
