@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
+import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio, PreserveRatioContext } from '../../dist';
 
@@ -33,7 +33,7 @@ export const ContextExample = () => (
       <Code>PreserveRatioContext</Code> for child components that care about
       the current scale.
     </Text>
-    <ResizableBox width={640} height={240}>
+    <ResizableBox width={640} height={242}>
       <PreserveRatio>
         <ContextContent />
       </PreserveRatio>

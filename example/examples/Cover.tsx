@@ -20,7 +20,7 @@ export const CoverExample = () => (
       </Link>
       .
     </Text>
-    <ResizableBox width={640} height={240}>
+    <ResizableBox width={640} height={242}>
       <PreserveRatio cover>
         <DefaultContent />
       </PreserveRatio>

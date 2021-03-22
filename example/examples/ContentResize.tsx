@@ -84,7 +84,7 @@ export const ContentResizeExample = () => {
           </NumberInputStepper>
         </NumberInput>
       </Flex>
-      <ResizableBox width={640} height={240}>
+      <ResizableBox width={640} height={242}>
         <PreserveRatio>
           <div
             style={{

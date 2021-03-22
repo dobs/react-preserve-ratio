@@ -80,7 +80,7 @@ export const AlignmentExample = () => {
           </Tbody>
         </Table>
       </RadioGroup>
-      <ResizableBox width={640} height={240}>
+      <ResizableBox width={640} height={242}>
         <PreserveRatio
           align={alignment.split(' ')[1] as Align}
           valign={alignment.split(' ')[0] as VAlign}

@@ -11,7 +11,7 @@ export const BasicExample = () => (
       Try resizing the box below and notice how content automatically scales
       while maintaining its ratio.
     </Text>
-    <ResizableBox width={640} height={240}>
+    <ResizableBox width={640} height={242}>
       <PreserveRatio>
         <DefaultContent />
       </PreserveRatio>

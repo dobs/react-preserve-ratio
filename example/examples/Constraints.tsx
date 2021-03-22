@@ -18,7 +18,7 @@ export const ConstraintsExample = () => (
       This time we pass in a <Code>maxScale</Code> prop to restrict the
       content's maximum size.
     </Text>
-    <ResizableBox width={640} height={240}>
+    <ResizableBox width={640} height={242}>
       <PreserveRatio maxScale={1}>
         <DefaultContent />
       </PreserveRatio>

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
-import { DefaultContent } from '../Common';
 
 export const SafeModeExample = () => (
   <Box as="section" id="safe-mode-example">
@@ -24,7 +23,7 @@ export const SafeModeExample = () => (
       </Link>{' '}
       for more detail.
     </Text>
-    <ResizableBox width={640} height={240}>
+    <ResizableBox width={640} height={242}>
       <PreserveRatio safeMode>
         <div
           style={{
