@@ -2,10 +2,13 @@ import * as React from 'react';
 import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
+import { SourceLink } from '../Common';
 
 export const SafeModeExample = () => (
   <Box as="section" id="safe-mode-example">
-    <Heading size="lg">Safe Mode Example</Heading>
+    <Heading size="lg">
+      Safe Mode Example <SourceLink name="SafeMode" />
+    </Heading>
     <Text>
       If elements are resized too quickly it can result in non-user-impacting
       errors. Where this could become a problem is if you're using a frontend

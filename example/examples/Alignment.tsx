@@ -1,22 +1,19 @@
 import * as React from 'react';
-import {
-  Box,
-  Code,
-  Heading,
-  Text,
-} from '@chakra-ui/layout';
+import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { Align, PreserveRatio, VAlign } from '../../dist';
 import { Radio, RadioGroup } from '@chakra-ui/radio';
 import { Table, Tbody, Td, Thead, Tr } from '@chakra-ui/table';
-import { DefaultContent } from '../Common';
+import { DefaultContent, SourceLink } from '../Common';
 
 export const AlignmentExample = () => {
   const [alignment, setAlignment] = React.useState('center center');
 
   return (
     <Box as="section" id="alignment-example">
-      <Heading size="lg">Alignment Example</Heading>
+      <Heading size="lg">
+        Alignment Example <SourceLink name="Alignment" />
+      </Heading>
       <Text>
         Components also support horizontal and vertical alignment via{' '}
         <Code>align</Code> and <Code>valign</Code> respectively.

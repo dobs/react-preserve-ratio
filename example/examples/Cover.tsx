@@ -2,11 +2,13 @@ import * as React from 'react';
 import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
-import { DefaultContent } from '../Common';
+import { DefaultContent, SourceLink } from '../Common';
 
 export const CoverExample = () => (
   <Box as="section" id="cover-example">
-    <Heading size="lg">Cover Example</Heading>
+    <Heading size="lg">
+      Cover Example <SourceLink name="Cover" />
+    </Heading>
     <Text>
       By default <Code>PreserveReactRatio</Code> sizes contents so that it's
       "contained" by the container, but can optionally have them "cover"

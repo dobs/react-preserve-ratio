@@ -1,11 +1,5 @@
 import * as React from 'react';
-import {
-  Box,
-  Flex,
-  Heading,
-  Spacer,
-  Text,
-} from '@chakra-ui/layout';
+import { Box, Flex, Heading, Link, Spacer, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
 import { Button } from '@chakra-ui/button';
@@ -16,6 +10,7 @@ import {
   NumberInputField,
   NumberInputStepper,
 } from '@chakra-ui/number-input';
+import { SourceLink } from '../Common';
 
 interface Rect {
   height: number;
@@ -30,9 +25,11 @@ export const ContentResizeExample = () => {
 
   return (
     <Box as="section" id="content-resize-example">
-      <Heading size="lg">Content Resizing Example</Heading>
+      <Heading size="lg">
+        Content Resizing Example <SourceLink name="ContentResize" />
+      </Heading>
       <Text>
-        Content is also automatically scaled when content dimensions change.
+        Content is also automatically scaled when content dimensions change.{' '}
       </Text>
       <Flex my={2} maxW="640px">
         <Button

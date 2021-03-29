@@ -1,4 +1,8 @@
+import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { Link } from '@chakra-ui/layout';
+import { generateKeyPair } from 'crypto';
 import * as React from 'react';
+import { homepage } from '../package.json'
 
 export const DefaultContent = ({ children }: { children?: any }) => (
   <div
@@ -14,4 +18,14 @@ export const DefaultContent = ({ children }: { children?: any }) => (
   >
     {children || 'Hello, world!'}
   </div>
+);
+
+export interface SourceLinkProps {
+  name: string;
+}
+
+export const SourceLink: React.FC<SourceLinkProps> = ({ name }) => (
+  <Link href={`${homepage}/blob/main/example/examples/${name}.tsx`}>
+    <ExternalLinkIcon w={4} h={4} color="gray.500" />
+  </Link>
 );

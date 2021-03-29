@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { Box, Code, Heading, Text } from '@chakra-ui/layout';
+import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio, PreserveScale } from '../../dist';
 import { relative } from 'path';
+import { SourceLink } from '../Common';
 
 export const PreserveScaleExample = () => (
   <Box as="section" id="basic-example">
-    <Heading size="lg">Preserving Scale Example</Heading>
+    <Heading size="lg">
+      Preserving Scale Example <SourceLink name="PreserveScale" />
+    </Heading>
     <Text fontSize="md">
       <Code>PreserveScale</Code> reverses the effect of{' '}
       <Code>PreserveRatio</Code>, allowing child elements to maintain their size

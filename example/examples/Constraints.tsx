@@ -3,20 +3,23 @@ import {
   Box,
   Code,
   Heading,
+  Link,
   ListItem,
   Text,
   UnorderedList,
 } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
-import { DefaultContent } from '../Common';
+import { DefaultContent, SourceLink } from '../Common';
 
 export const ConstraintsExample = () => (
   <Box as="section" id="constraints-example">
-    <Heading size="lg">Constraints Example</Heading>
+    <Heading size="lg">
+      Constraints Example <SourceLink name="Constraints" />
+    </Heading>
     <Text>
       This time we pass in a <Code>maxScale</Code> prop to restrict the
-      content's maximum size.
+      content's maximum size.{' '}
     </Text>
     <ResizableBox width={640} height={242}>
       <PreserveRatio maxScale={1}>
