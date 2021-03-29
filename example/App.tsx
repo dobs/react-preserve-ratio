@@ -4,13 +4,14 @@ import {
   Heading,
   Link,
 } from '@chakra-ui/react';
+import { AlignmentExample } from './examples/Alignment';
 import { BasicExample } from './examples/Basic';
 import { ConstraintsExample } from './examples/Constraints';
 import { ContentResizeExample } from './examples/ContentResize';
-import { AlignmentExample } from './examples/Alignment';
-import { CoverExample } from './examples/Cover';
-import { SafeModeExample } from './examples/SafeMode';
 import { ContextExample } from './examples/Context';
+import { CoverExample } from './examples/Cover';
+import { PreserveScaleExample } from './examples/PreserveScale';
+import { SafeModeExample } from './examples/SafeMode';
 import { WindowExample } from './examples/Window';
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
       <CoverExample />
       <SafeModeExample />
       <ContextExample />
+      <PreserveScaleExample />
       <WindowExample />
     </Box>
   );

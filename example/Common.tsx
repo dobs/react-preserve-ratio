@@ -8,6 +8,7 @@ export const DefaultContent = ({ children }: { children?: any }) => (
       display: 'flex',
       height: '240px',
       justifyContent: 'center',
+      overflow: 'hidden',
       width: '320px',
     }}
   >

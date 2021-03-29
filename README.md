@@ -102,6 +102,43 @@ function Example() {
 }
 ```
 
+## Preserving Scale
+
+Occasionally you may want a child component to preserve its scale independent of the `PreserveRatio` component it lives under -- for such cases there's a `PreserveScale` component that does exactly that.
+
+Like `PreserveRatio` it accepts `align` and `valign` attributes. Unlike `PreserveRatio` it's hard to provide good defaults, so you'll probably want to set them explicitly.
+
+Example:
+
+```tsx
+<PreserveRatio>
+  <div
+    style={{
+      alignItems: 'center',
+      display: 'flex',
+      height: '240px',
+      justifyContent: 'center',
+      position: 'relative',
+      overflow: 'hidden',
+      width: '320px',
+    }}
+  >
+    ... Scaling Content ...
+    <div
+      style={{
+        position: 'absolute',
+        bottom: 0,
+        right: '4px',
+      }}
+    >
+      <PreserveScale align="right" valign="bottom">
+        Disclaimer: Bottom-Right.
+      </PreserveScale>
+    </div>
+  </div>
+</PreserveRatio>
+```
+
 ## Examples
 
 See the [Examples Page](https://dobs.github.io/react-preserve-ratio/).
