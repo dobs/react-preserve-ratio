@@ -3,14 +3,13 @@ import {
   Box,
   Code,
   Heading,
-  Link,
   ListItem,
   Text,
   UnorderedList,
 } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
-import { DefaultContent, SourceLink } from '../Common';
+import { DefaultExampleContent, SourceLink } from '../Common';
 
 export const ConstraintsExample = () => (
   <Box as="section" id="constraints-example">
@@ -23,7 +22,7 @@ export const ConstraintsExample = () => (
     </Text>
     <ResizableBox width={640} height={242}>
       <PreserveRatio maxScale={1}>
-        <DefaultContent />
+        <DefaultExampleContent />
       </PreserveRatio>
     </ResizableBox>
     <Text>There are a few different constraint options:</Text>

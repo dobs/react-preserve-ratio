@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Box, Heading, Link, Text } from '@chakra-ui/layout';
+import { Box, Heading, Text } from '@chakra-ui/layout';
 import { PreserveRatio } from '../../dist';
-import { DefaultContent, SourceLink } from '../Common';
+import { DefaultExampleContent, SourceLink } from '../Common';
 
 export const WindowExample = () => (
   <Box as="section" id="window-example">
@@ -25,7 +25,7 @@ export const WindowExample = () => (
       }}
     >
       <PreserveRatio>
-        <DefaultContent />
+        <DefaultExampleContent />
       </PreserveRatio>
     </div>
   </Box>

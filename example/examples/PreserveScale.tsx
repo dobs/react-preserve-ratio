@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
+import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio, PreserveScale } from '../../dist';
-import { relative } from 'path';
 import { SourceLink } from '../Common';
 
 export const PreserveScaleExample = () => (

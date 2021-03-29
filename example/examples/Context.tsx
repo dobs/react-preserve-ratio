@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
+import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio, PreserveRatioContext } from '../../dist';
 import { SourceLink } from '../Common';

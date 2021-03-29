@@ -1,10 +1,9 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { Link } from '@chakra-ui/layout';
-import { generateKeyPair } from 'crypto';
 import * as React from 'react';
-import { homepage } from '../package.json'
+import { homepage } from '../package.json';
 
-export const DefaultContent = ({ children }: { children?: any }) => (
+export const DefaultExampleContent = ({ children }: { children?: any }) => (
   <div
     style={{
       alignItems: 'center',

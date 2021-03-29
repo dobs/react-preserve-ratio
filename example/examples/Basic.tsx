@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { Box, Heading, Link, Text } from '@chakra-ui/layout';
+import { Box, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
-import { DefaultContent, SourceLink } from '../Common';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
+import { DefaultExampleContent, SourceLink } from '../Common';
 
 export const BasicExample = () => (
   <Box as="section" id="basic-example">
@@ -16,7 +15,7 @@ export const BasicExample = () => (
     </Text>
     <ResizableBox width={640} height={242}>
       <PreserveRatio>
-        <DefaultContent />
+        <DefaultExampleContent />
       </PreserveRatio>
     </ResizableBox>
   </Box>

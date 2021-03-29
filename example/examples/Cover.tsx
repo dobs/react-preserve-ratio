@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
-import { DefaultContent, SourceLink } from '../Common';
+import { DefaultExampleContent, SourceLink } from '../Common';
 
 export const CoverExample = () => (
   <Box as="section" id="cover-example">
@@ -24,7 +24,7 @@ export const CoverExample = () => (
     </Text>
     <ResizableBox width={640} height={242}>
       <PreserveRatio cover>
-        <DefaultContent />
+        <DefaultExampleContent />
       </PreserveRatio>
     </ResizableBox>
   </Box>

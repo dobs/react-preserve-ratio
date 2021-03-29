@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
+import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { Align, PreserveRatio, VAlign } from '../../dist';
 import { Radio, RadioGroup } from '@chakra-ui/radio';
 import { Table, Tbody, Td, Thead, Tr } from '@chakra-ui/table';
-import { DefaultContent, SourceLink } from '../Common';
+import { DefaultExampleContent, SourceLink } from '../Common';
 
 export const AlignmentExample = () => {
   const [alignment, setAlignment] = React.useState('center center');
@@ -82,7 +82,7 @@ export const AlignmentExample = () => {
           align={alignment.split(' ')[1] as Align}
           valign={alignment.split(' ')[0] as VAlign}
         >
-          <DefaultContent />
+          <DefaultExampleContent />
         </PreserveRatio>
       </ResizableBox>
     </Box>
