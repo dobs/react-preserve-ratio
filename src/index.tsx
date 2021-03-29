@@ -1,3 +1,7 @@
+// Aliasing `PreserveRatioProps` to `Props` to save a major version bump.
+import { PreserveRatioProps } from './PreserveRatio';
+export type Props = PreserveRatioProps;
+
 export {
   PreserveRatio,
   PreserveRatioContext,
@@ -7,7 +11,3 @@ export {
 export { PreserveScale, PreserveScaleProps } from './PreserveScale';
 
 export { Align, VAlign } from './common';
-
-// Aliasing `PreserveRatioProps` to `Props` to save a major version bump.
-import { PreserveRatioProps } from './PreserveRatio';
-export type Props = PreserveRatioProps;
