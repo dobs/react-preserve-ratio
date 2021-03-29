@@ -23,7 +23,9 @@ export const PreserveScale: FC<PreserveScaleProps> = ({
         transformOrigin: `${valign || 'center'} ${align || 'center'}`,
       }}
     >
-      {children}
+      <PreserveRatioContext.Provider value={{ scale: 1 }}>
+        {children}
+      </PreserveRatioContext.Provider>
     </div>
   );
 };

@@ -128,7 +128,7 @@ Example:
       style={{
         position: 'absolute',
         bottom: 0,
-        right: '4px',
+        right: 0,
       }}
     >
       <PreserveScale align="right" valign="bottom">

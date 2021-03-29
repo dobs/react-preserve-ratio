@@ -31,26 +31,38 @@ export const PreserveScaleExample = () => (
           Hello, world!
           <div
             style={{
-              position: 'absolute',
               bottom: 0,
-              right: '4px',
-              fontSize: '16px',
+              position: 'absolute',
+              right: 0,
             }}
           >
             <PreserveScale align="right" valign="bottom">
-              Bottom-Right
+              <div
+                style={{
+                  fontSize: '16px',
+                  padding: '0 4px',
+                }}
+              >
+                Bottom-Right
+              </div>
             </PreserveScale>
           </div>
           <div
             style={{
+              left: 0,
               position: 'absolute',
               top: 0,
-              left: '4px',
-              fontSize: '16px',
             }}
           >
             <PreserveScale align="left" valign="top">
-              Top-Left
+              <div
+                style={{
+                  fontSize: '16px',
+                  padding: '0 4px',
+                }}
+              >
+                Top-Left
+              </div>
             </PreserveScale>
           </div>
         </div>
