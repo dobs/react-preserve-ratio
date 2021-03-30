@@ -5,7 +5,7 @@ import { PreserveRatio, PreserveScale } from '../../dist';
 import { SourceLink } from '../Common';
 
 export const PreserveScaleExample = () => (
-  <Box as="section" id="basic-example">
+  <Box as="section" id="preserve-scale-example">
     <Heading size="lg">
       Preserving Scale Example <SourceLink name="PreserveScale" />
     </Heading>

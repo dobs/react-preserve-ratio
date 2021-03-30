@@ -10,7 +10,7 @@ import {
   NumberInputField,
   NumberInputStepper,
 } from '@chakra-ui/number-input';
-import { SourceLink } from '../Common';
+import { resizableHeight, resizableWidth, SourceLink } from '../Common';
 
 interface Rect {
   height: number;
@@ -81,7 +81,7 @@ export const ContentResizeExample = () => {
           </NumberInputStepper>
         </NumberInput>
       </Flex>
-      <ResizableBox width={640} height={242}>
+      <ResizableBox width={resizableWidth} height={resizableHeight}>
         <PreserveRatio>
           <div
             style={{

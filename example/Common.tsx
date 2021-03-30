@@ -28,3 +28,6 @@ export const SourceLink: React.FC<SourceLinkProps> = ({ name }) => (
     <ExternalLinkIcon w={4} h={4} color="gray.500" />
   </Link>
 );
+
+export const resizableWidth = Math.min(640, window.innerWidth - 32);
+export const resizableHeight = 242;

@@ -4,7 +4,12 @@ import { ResizableBox } from 'react-resizable';
 import { Align, PreserveRatio, VAlign } from '../../dist';
 import { Radio, RadioGroup } from '@chakra-ui/radio';
 import { Table, Tbody, Td, Thead, Tr } from '@chakra-ui/table';
-import { DefaultExampleContent, SourceLink } from '../Common';
+import {
+  DefaultExampleContent,
+  resizableHeight,
+  resizableWidth,
+  SourceLink,
+} from '../Common';
 
 export const AlignmentExample = () => {
   const [alignment, setAlignment] = React.useState('center center');
@@ -77,7 +82,7 @@ export const AlignmentExample = () => {
           </Tbody>
         </Table>
       </RadioGroup>
-      <ResizableBox width={640} height={242}>
+      <ResizableBox width={resizableWidth} height={resizableHeight}>
         <PreserveRatio
           align={alignment.split(' ')[1] as Align}
           valign={alignment.split(' ')[0] as VAlign}

@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {
-  Box,
-  Heading,
-  Link,
-} from '@chakra-ui/react';
+import { Box, Heading, Link } from '@chakra-ui/react';
 import { AlignmentExample } from './examples/Alignment';
 import { BasicExample } from './examples/Basic';
 import { ConstraintsExample } from './examples/Constraints';

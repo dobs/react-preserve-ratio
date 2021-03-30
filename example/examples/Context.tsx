@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio, PreserveRatioContext } from '../../dist';
-import { SourceLink } from '../Common';
+import { resizableWidth, SourceLink } from '../Common';
 
 const ContextContent = () => {
   const { scale } = React.useContext(PreserveRatioContext);
@@ -36,7 +36,7 @@ export const ContextExample = () => (
       <Code>PreserveRatioContext</Code> for child components that care about the
       current scale.{' '}
     </Text>
-    <ResizableBox width={640} height={242}>
+    <ResizableBox width={resizableWidth} height={resizableWidth}>
       <PreserveRatio>
         <ContextContent />
       </PreserveRatio>
