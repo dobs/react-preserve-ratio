@@ -20,7 +20,8 @@ export const WindowExample = () => (
     <div
       style={{
         border: '1px dotted rgba(0, 0, 0, 0.2)',
-        height: 'calc(100vh - 2em)',
+        fontSize: '2em',
+        height: 'calc(100vh - 32px)',
         width: '100%',
       }}
     >

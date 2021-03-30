@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio, PreserveScale } from '../../dist';
-import { SourceLink } from '../Common';
+import { resizableHeight, resizableWidth, SourceLink } from '../Common';
 
 export const PreserveScaleExample = () => (
   <Box as="section" id="preserve-scale-example">
@@ -16,7 +16,7 @@ export const PreserveScaleExample = () => (
       might be a watermark or disclaimer tucked into the corner of a
       presentation slide where you want it legible but discrete.
     </Text>
-    <ResizableBox width={640} height={242}>
+    <ResizableBox width={resizableWidth} height={resizableHeight}>
       <PreserveRatio>
         <div
           style={{
