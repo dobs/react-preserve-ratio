@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0",
+  "version": "1.2.1",
   "homepage": "https://github.com/dobs/react-preserve-ratio",
   "license": "Apache-2.0",
   "main": "dist/index.js",
