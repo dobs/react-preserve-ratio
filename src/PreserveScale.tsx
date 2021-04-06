@@ -22,7 +22,7 @@ export const PreserveScale: FC<PreserveScaleProps> = ({
     console.warn(
       '[react-preserve-ratio] Component `PreserveScale` is being used without a parent `PreserveRatio`. This is probably unintentional. Did you mean to use `PreserveRatio` instead?'
     );
-    scale = 1
+    scale = 1;
   }
 
   return (
