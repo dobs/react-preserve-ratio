@@ -20,7 +20,7 @@ interface Rect {
   width: number;
 }
 
-export const PreserveRatioContext = createContext<Context>({ scale: 1 });
+export const PreserveRatioContext = createContext<Context>({ scale: -1 });
 
 export interface PreserveRatioProps extends HTMLAttributes<HTMLDivElement> {
   align?: Align;

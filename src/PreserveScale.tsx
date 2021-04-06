@@ -14,7 +14,16 @@ export const PreserveScale: FC<PreserveScaleProps> = ({
   children,
   valign,
 }) => {
-  const { scale } = React.useContext(PreserveRatioContext);
+  let { scale } = React.useContext(PreserveRatioContext);
+
+  if (isNaN(scale)) {
+    return null;
+  } else if (scale < 0) {
+    console.warn(
+      '[react-preserve-ratio] Component `PreserveScale` is being used without a parent `PreserveRatio`. This is probably unintentional. Did you mean to use `PreserveRatio` instead?'
+    );
+    scale = 1
+  }
 
   return (
     <div
