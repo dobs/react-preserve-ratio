@@ -22,7 +22,7 @@
     "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"
   },
   "devDependencies": {
-    "@types/react": "^17.0.3",
+    "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
     "@types/react-resizable": "^1.7.2",
     "cypress": "^7.1.0",
