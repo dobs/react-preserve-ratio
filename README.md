@@ -6,6 +6,8 @@ For example, how slideshow slides automatically scale to fit a window or screen 
 
 [![NPM](https://img.shields.io/npm/v/react-preserve-ratio.svg)](https://www.npmjs.com/package/react-preserve-ratio) [![CI](https://github.com/dobs/react-preserve-ratio/actions/workflows/main.yml/badge.svg)](https://github.com/dobs/react-preserve-ratio/actions/workflows/main.yml) [![Github Pages](https://github.com/dobs/react-preserve-ratio/actions/workflows/github-pages.yml/badge.svg)](https://dobs.github.io/react-preserve-ratio/)
 
+![Visualization of react-preserve-ratio](/banner.svg)
+
 ## Install
 
 ```bash
