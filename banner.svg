@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1216 896" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-32,-32)">
+        <g transform="matrix(1.05485,0,0,1.14838,-74.7308,-50.2313)">
+            <rect x="101.181" y="71.606" width="303.361" height="208.99" style="fill:rgb(220,255,221);"/>
+            <path d="M404.542,71.606L101.181,71.606L101.181,280.597L404.542,280.597L404.542,71.606ZM402.646,73.348L402.646,278.855C402.646,278.855 103.077,278.855 103.077,278.855C103.077,278.855 103.077,73.348 103.077,73.348L402.646,73.348Z" style="fill-opacity:0.1;"/>
+        </g>
+        <g transform="matrix(2.84809,0,0,1.14742,95.8269,-49.963)">
+            <rect x="101.181" y="71.606" width="303.361" height="208.99" style="fill:rgb(255,255,220);"/>
+            <path d="M404.542,71.606L101.181,71.606L101.181,280.597L404.542,280.597L404.542,71.606ZM403.84,73.35L403.84,278.854C403.84,278.854 101.883,278.854 101.883,278.854C101.883,278.854 101.883,93.356 101.883,73.35C117.492,73.35 388.231,73.35 403.84,73.35L403.84,73.35Z" style="fill-opacity:0.1;"/>
+        </g>
+        <g transform="matrix(4.00843,0,0,2.98578,-373.577,90.1985)">
+            <rect x="101.181" y="71.606" width="303.361" height="208.99" style="fill:rgb(255,255,220);"/>
+            <path d="M404.542,71.606L101.181,71.606L101.181,280.597L404.542,280.597L404.542,71.606ZM404.043,72.276L404.043,279.927C390.722,279.927 115.001,279.927 101.68,279.927C101.68,279.927 101.68,72.276 101.68,72.276L404.043,72.276Z" style="fill-opacity:0.1;"/>
+        </g>
+        <g transform="matrix(0.7989,0,0,0.7989,-116.3,-141.001)">
+            <text x="286.346px" y="334.462px" style="font-family:'Helvetica';font-size:50px;">Preserve</text>
+            <text x="242.645px" y="384.462px" style="font-family:'Helvetica';font-size:50px;">an Element&apos;s</text>
+            <text x="328.021px" y="434.462px" style="font-family:'Helvetica';font-size:50px;">Ratio</text>
+        </g>
+        <g transform="matrix(0.281898,0,0,0.281898,-10.3136,-41.9742)">
+            <text x="184.893px" y="334.462px" style="font-family:'Helvetica';font-size:50px;fill-opacity:0.49;">&lt;PreserveRatio /&gt;</text>
+        </g>
+        <g transform="matrix(1.05485,0,0,1.14838,549.269,-50.2313)">
+            <rect x="101.181" y="71.606" width="303.361" height="208.99" style="fill:rgb(220,255,221);"/>
+            <path d="M404.542,71.606L101.181,71.606L101.181,280.597L404.542,280.597L404.542,71.606ZM402.646,73.348L402.646,278.855C402.646,278.855 103.077,278.855 103.077,278.855C103.077,278.855 103.077,93.347 103.077,73.348L402.646,73.348Z" style="fill-opacity:0.1;"/>
+        </g>
+        <g transform="matrix(0.281898,0,0,0.281898,613.686,-41.9742)">
+            <text x="184.893px" y="334.462px" style="font-family:'Helvetica';font-size:50px;fill-opacity:0.49;">&lt;PreserveRatio /&gt;</text>
+        </g>
+        <g transform="matrix(0.281898,0,0,0.281898,371.177,-41.9398)">
+            <text x="80.279px" y="334.462px" style="font-family:'Helvetica';font-size:50px;fill-opacity:0.49;">&lt;div id=&quot;some-container&quot; /&gt;</text>
+        </g>
+        <g transform="matrix(0.281898,0,0,0.281898,19.1769,229.86)">
+            <text x="80.279px" y="334.462px" style="font-family:'Helvetica';font-size:50px;fill-opacity:0.49;">&lt;div id=&quot;some-container&quot; /&gt;</text>
+        </g>
+        <g transform="matrix(0.7989,0,0,0.7989,507.7,-141.001)">
+            <text x="259.93px" y="334.462px" style="font-family:'Helvetica';font-size:50px;">Regardless</text>
+            <text x="250.188px" y="384.462px" style="font-family:'Helvetica';font-size:50px;">of Container</text>
+            <text x="337.75px" y="434.462px" style="font-family:'Helvetica';font-size:50px;">Size</text>
+        </g>
+        <g transform="matrix(2.74261,0,0,2.98578,-53.5,90.1985)">
+            <rect x="101.181" y="71.606" width="303.361" height="208.99" style="fill:rgb(220,255,221);"/>
+            <path d="M404.542,71.606L101.181,71.606L101.181,280.597L404.542,280.597L404.542,71.606ZM403.813,72.276L403.813,279.927C403.813,279.927 118.253,279.927 101.91,279.927C101.91,279.927 101.91,85.171 101.91,72.276C101.91,72.276 403.813,72.276 403.813,72.276L403.813,72.276Z" style="fill-opacity:0.1;"/>
+        </g>
+        <g transform="matrix(0.281898,0,0,0.281898,181.686,229.826)">
+            <text x="184.893px" y="334.462px" style="font-family:'Helvetica';font-size:50px;fill-opacity:0.49;">&lt;PreserveRatio /&gt;</text>
+        </g>
+        <g transform="matrix(2.07714,0,0,2.07714,-162.722,-145.385)">
+            <text x="272.417px" y="334.462px" style="font-family:'Helvetica';font-size:50px;">And Scale</text>
+            <text x="237.713px" y="384.462px" style="font-family:'Helvetica';font-size:50px;">Automatically</text>
+            <text x="330.816px" y="434.462px" style="font-family:'Helvetica';font-size:50px;">to Fit</text>
+        </g>
+    </g>
+</svg>
