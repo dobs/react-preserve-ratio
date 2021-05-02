@@ -3,7 +3,7 @@ import {
   createContext,
   FC,
   HTMLAttributes,
-  ReactChild,
+  ReactNode,
   useEffect,
   useMemo,
   useRef,
@@ -24,7 +24,7 @@ export const PreserveRatioContext = createContext<Context>({ scale: -1 });
 
 export interface PreserveRatioProps extends HTMLAttributes<HTMLDivElement> {
   align?: Align;
-  children: ReactChild;
+  children: ReactNode;
   cover?: boolean;
   maxHeight?: number;
   maxScale?: number;
