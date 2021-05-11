@@ -14,7 +14,7 @@
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "framer-motion": "^4.1.13",
-    "react-resizable": "^1.11.1"
+    "react-resizable": "^3.0.1"
   },
   "alias": {
     "react": "../node_modules/react",
