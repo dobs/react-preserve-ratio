@@ -74,8 +74,11 @@ class Example extends Component {
 - `valign` (optional string, default: `center`): Vertical alignment, `center`, `top` or `bottom`.
 - `cover` (optional boolean, default: `false`): Have content "cover" rather than be "contained".
 
-### Safety
+### Tweaks
 
+Dynamic scaling comes with some visual and performance quirks, and these props aim to help work around them.
+
+- `hint` (optional bool): Slightly increases the bleed between content and container. This ensures edge-to-edge coverage at the cost of having some overhang. Useful when there's high contrast between content and container that would be noticeable otherwise.
 - `safeMode` (optional bool): Attempt to reduce non-user-impacting `ResizeObserver` errors at the cost of latency (See: [StackOverflow](https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded))
 
 ## Context

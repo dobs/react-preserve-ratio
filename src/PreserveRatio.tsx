@@ -22,10 +22,19 @@ interface Rect {
 
 export const PreserveRatioContext = createContext<Context>({ scale: -1 });
 
+/** Calculate scale based on some inner value and outer value.
+ *
+ * Includes support for hinting, attempting to accommodate for an extra pixel
+ * as appropriate.
+ * */
+const calcScale = (i: number, o: number, hint: boolean) =>
+  o / i + (hint && (o + i) % 2 ? 1 / i : 0);
+
 export interface PreserveRatioProps extends HTMLAttributes<HTMLDivElement> {
   align?: Align;
   children: ReactNode;
   cover?: boolean;
+  hint?: boolean;
   maxHeight?: number;
   maxScale?: number;
   maxWidth?: number;
@@ -37,6 +46,7 @@ export const PreserveRatio: FC<PreserveRatioProps> = ({
   align,
   children,
   cover,
+  hint,
   maxHeight,
   maxScale,
   maxWidth,
@@ -53,8 +63,8 @@ export const PreserveRatio: FC<PreserveRatioProps> = ({
     const cmp = cover ? Math.max : Math.min;
 
     const dynamicScale = cmp(
-      outerRect.width / innerRect.width,
-      outerRect.height / innerRect.height
+      calcScale(innerRect.width, outerRect.width, hint || false),
+      calcScale(innerRect.height, outerRect.height, hint || false)
     );
 
     return Math.min(
