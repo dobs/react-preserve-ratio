@@ -33,8 +33,8 @@ export const ContextExample = () => (
       Context Example <SourceLink name="Context" />
     </Heading>
     <Text>
-      <Code>PreserveRatioContext</Code> for child components that care about the
-      current scale.{' '}
+      <Code>PreserveRatioContext</Code> or the <Code>useScale</Code> hook are
+      available for child components that care about the current scale.
     </Text>
     <ResizableBox width={resizableWidth} height={resizableHeight}>
       <PreserveRatio>

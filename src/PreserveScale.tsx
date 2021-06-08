@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FC, HTMLAttributes, ReactChild } from 'react';
 import { Align, VAlign } from './common';
-import { PreserveRatioContext } from './PreserveRatio';
+import { PreserveRatioContext, useScale } from './PreserveRatio';
 
 export interface PreserveScaleProps extends HTMLAttributes<HTMLDivElement> {
   align?: Align;
@@ -14,7 +14,7 @@ export const PreserveScale: FC<PreserveScaleProps> = ({
   children,
   valign,
 }) => {
-  let { scale } = React.useContext(PreserveRatioContext);
+  let scale = useScale();
 
   if (isNaN(scale)) {
     return null;
