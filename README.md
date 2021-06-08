@@ -83,18 +83,18 @@ Dynamic scaling comes with some visual and performance quirks, and these props a
 
 ## Context
 
-This package also includes `PreserveRatioContext` for child components interested in receiving scaling updates. Currently the context contains:
+Currently there's only one context attribute:
 
 - `scale` (number): The content scale, e.g. `1` when at 100% scale, `2` when at 200% scale, etc.
 
-Example usage w/ hooks:
+For convenience components can access it via the `useScale` hook:
 
 ```tsx
 import React from 'react';
-import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio';
+import { PreserveRatio, useScale } from 'react-preserve-ratio';
 
 function DisplayScale() {
-  const { scale } = useContext(PreserveRatioContext);
+  const scale = useScale();
   return <div>{scale}</div>;
 }
 
@@ -105,6 +105,20 @@ function Example() {
     </PreserveRatio>
   );
 }
+```
+
+But it's also available via `PreserveRatioContext` if preferred:
+
+```tsx
+import React from 'react';
+import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio';
+
+function DisplayScale() {
+  const { scale } = useContext(PreserveRatioContext);
+  return <div>{scale}</div>;
+}
+
+// ...
 ```
 
 ## Preserving Scale

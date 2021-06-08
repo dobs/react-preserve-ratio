@@ -6,6 +6,7 @@ export {
   PreserveRatio,
   PreserveRatioContext,
   PreserveRatioProps,
+  useScale,
 } from './PreserveRatio';
 
 export { PreserveScale, PreserveScaleProps } from './PreserveScale';

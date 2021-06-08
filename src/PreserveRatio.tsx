@@ -4,6 +4,7 @@ import {
   FC,
   HTMLAttributes,
   ReactNode,
+  useContext,
   useEffect,
   useMemo,
   useRef,
@@ -21,6 +22,8 @@ interface Rect {
 }
 
 export const PreserveRatioContext = createContext<Context>({ scale: -1 });
+
+export const useScale = () => useContext(PreserveRatioContext).scale;
 
 /** Calculate scale based on some inner value and outer value.
  *

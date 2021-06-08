@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
-import { PreserveRatio, PreserveRatioContext } from '../../dist';
+import { PreserveRatio, useScale } from '../../dist';
 import { resizableHeight, resizableWidth, SourceLink } from '../Common';
 
 const ContextContent = () => {
-  const { scale } = React.useContext(PreserveRatioContext);
+  const scale = useScale();
 
   return (
     <div
