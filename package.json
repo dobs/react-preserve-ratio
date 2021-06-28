@@ -51,7 +51,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@size-limit/preset-small-lib": "^4.12.0",
-    "@types/node": "^15.12.4",
+    "@types/node": "^15.12.5",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
     "@types/resize-observer-browser": "^0.1.5",
