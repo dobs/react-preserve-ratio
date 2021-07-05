@@ -52,7 +52,7 @@
     "@babel/core": "^7.14.6",
     "@size-limit/preset-small-lib": "^5.0.1",
     "@types/node": "^15.12.5",
-    "@types/react": "^17.0.12",
+    "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
     "@types/resize-observer-browser": "^0.1.5",
     "babel-loader": "^8.2.2",
