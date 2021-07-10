@@ -54,7 +54,7 @@
     "@types/node": "^16.0.0",
     "@types/react": "^17.0.13",
     "@types/react-dom": "^17.0.8",
-    "@types/resize-observer-browser": "^0.1.5",
+    "@types/resize-observer-browser": "^0.1.6",
     "babel-loader": "^8.2.2",
     "husky": "^7.0.1",
     "prop-types": "^15.7.2",
