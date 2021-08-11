@@ -76,7 +76,7 @@ export const PreserveRatio: FC<PreserveRatioProps> = ({
       (maxHeight || Number.MAX_VALUE) / innerRect.height,
       (maxWidth || Number.MAX_VALUE) / innerRect.width
     );
-  }, [cover, innerRect, maxScale, maxHeight, maxWidth, outerRect]);
+  }, [cover, hint, innerRect, maxScale, maxHeight, maxWidth, outerRect]);
 
   const applyResize = (entries: any) =>
     entries.forEach((entry: any) => {
