@@ -1,5 +1,3 @@
-import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { Link } from '@chakra-ui/layout';
 import * as React from 'react';
 import { homepage } from '../package.json';
 
@@ -25,9 +23,9 @@ export interface SourceLinkProps {
 
 export function SourceLink({ name }: SourceLinkProps): JSX.Element {
   return (
-    <Link href={`${homepage}/blob/main/example/examples/${name}.tsx`}>
-      <ExternalLinkIcon w={4} h={4} color="gray.500" />
-    </Link>
+    <a className="source-link" href={`${homepage}/blob/main/example/examples/${name}.tsx`}>
+      [source]
+    </a>
   );
 }
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
 import {
@@ -10,27 +9,27 @@ import {
 } from '../Common';
 
 export const CoverExample = () => (
-  <Box as="section" id="cover-example">
-    <Heading size="lg">
+  <section id="cover-example">
+    <h2>
       Cover Example <SourceLink name="Cover" />
-    </Heading>
-    <Text>
-      By default <Code>PreserveReactRatio</Code> sizes contents so that it's
+    </h2>
+    <p>
+      By default <code>PreserveReactRatio</code> sizes contents so that it's
       "contained" by the container, but can optionally have them "cover"
       instead.
-    </Text>
-    <Text>
+    </p>
+    <p>
       This is useful when the intention is to use contents like a background,
       and is similar to how{' '}
-      <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">
-        <Code>background-size</Code> handles "contain" vs. "cover" in CSS
-      </Link>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">
+        <code>background-size</code> handles "contain" vs. "cover" in CSS
+      </a>
       .
-    </Text>
+    </p>
     <ResizableBox width={resizableWidth} height={resizableHeight}>
       <PreserveRatio cover>
         <DefaultExampleContent />
       </PreserveRatio>
     </ResizableBox>
-  </Box>
+  </section>
 );

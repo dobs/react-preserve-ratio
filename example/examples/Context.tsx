@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio, useScale } from '../../dist';
 import { resizableHeight, resizableWidth, SourceLink } from '../Common';
@@ -28,18 +27,18 @@ const ContextContent = () => {
 };
 
 export const ContextExample = () => (
-  <Box as="section" id="context-example">
-    <Heading size="lg">
+  <section id="context-example">
+    <h2>
       Context Example <SourceLink name="Context" />
-    </Heading>
-    <Text>
-      <Code>PreserveRatioContext</Code> or the <Code>useScale</Code> hook are
+    </h2>
+    <p>
+      <code>PreserveRatioContext</code> or the <code>useScale</code> hook are
       available for child components that care about the current scale.
-    </Text>
+    </p>
     <ResizableBox width={resizableWidth} height={resizableHeight}>
       <PreserveRatio>
         <ContextContent />
       </PreserveRatio>
     </ResizableBox>
-  </Box>
+  </section>
 );

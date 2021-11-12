@@ -1,15 +1,6 @@
 import * as React from 'react';
-import { Box, Flex, Heading, Spacer, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
-import { Button } from '@chakra-ui/button';
-import {
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-} from '@chakra-ui/number-input';
 import { resizableHeight, resizableWidth, SourceLink } from '../Common';
 
 interface Rect {
@@ -24,63 +15,51 @@ export const ContentResizeExample = () => {
   });
 
   return (
-    <Box as="section" id="content-resize-example">
-      <Heading size="lg">
+    <section id="content-resize-example">
+      <h2>
         Content Resizing Example <SourceLink name="ContentResize" />
-      </Heading>
-      <Text>
+      </h2>
+      <p>
         Content is also automatically scaled when content dimensions change.{' '}
-      </Text>
-      <Flex my={2} maxW="640px">
-        <Button
+      </p>
+      <div style={{ display: 'flex', margin: '4px 0', maxWidth: '640px' }}>
+        <button
           onClick={() => setContentResizeRect({ width: 480, height: 240 })}
         >
           Wide
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => setContentResizeRect({ width: 240, height: 320 })}
         >
           Tall
-        </Button>
-        <Spacer />
-        <NumberInput
-          w={20}
-          mr={2}
-          min={1}
-          max={999}
+        </button>
+        <div style={{ flex: 1 }}></div>
+        <input
+          type="number"
           value={contentResizeRect.width}
-          onChange={v =>
+          onChange={e =>
             setContentResizeRect({
-              width: parseInt(v),
+              width: parseInt(e.target.value),
               height: contentResizeRect.height,
             })
           }
-        >
-          <NumberInputField />
-          <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
-          </NumberInputStepper>
-        </NumberInput>
-        <NumberInput
-          w={20}
-          min={1}
-          max={999}
+          max="999"
+          min="1"
+        />
+        x
+        <input
+          type="number"
           value={contentResizeRect.height}
-          onChange={v =>
+          onChange={e =>
             setContentResizeRect({
               width: contentResizeRect.width,
-              height: parseInt(v),
+              height: parseInt(e.target.value),
             })
           }
-        >
-          <NumberInputField />
-          <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
-          </NumberInputStepper>
-        </NumberInput>
-      </Flex>
+          max="999"
+          min="1"
+        />
+      </div>
       <ResizableBox width={resizableWidth} height={resizableHeight}>
         <PreserveRatio>
           <div
@@ -98,6 +77,6 @@ export const ContentResizeExample = () => {
           </div>
         </PreserveRatio>
       </ResizableBox>
-    </Box>
+    </section>
   );
 };

@@ -1,21 +1,20 @@
 import * as React from 'react';
-import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio, PreserveScale } from '../../dist';
 import { resizableHeight, resizableWidth, SourceLink } from '../Common';
 
 export const PreserveScaleExample = () => (
-  <Box as="section" id="preserve-scale-example">
-    <Heading size="lg">
+  <section id="preserve-scale-example">
+    <h2>
       Preserving Scale Example <SourceLink name="PreserveScale" />
-    </Heading>
-    <Text fontSize="md">
-      <Code>PreserveScale</Code> reverses the effect of{' '}
-      <Code>PreserveRatio</Code>, allowing child elements to maintain their size
-      regardless of the scale of <Code>PreserveRatio</Code>. An example use case
+    </h2>
+    <p>
+      <code>PreserveScale</code> reverses the effect of{' '}
+      <code>PreserveRatio</code>, allowing child elements to maintain their size
+      regardless of the scale of <code>PreserveRatio</code>. An example use case
       might be a watermark or disclaimer tucked into the corner of a
       presentation slide where you want it legible but discrete.
-    </Text>
+    </p>
     <ResizableBox width={resizableWidth} height={resizableHeight}>
       <PreserveRatio>
         <div
@@ -70,5 +69,5 @@ export const PreserveScaleExample = () => (
         </div>
       </PreserveRatio>
     </ResizableBox>
-  </Box>
+  </section>
 );

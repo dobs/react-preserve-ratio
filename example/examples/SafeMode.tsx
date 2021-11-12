@@ -1,31 +1,30 @@
 import * as React from 'react';
-import { Box, Code, Heading, Link, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { PreserveRatio } from '../../dist';
 import { resizableHeight, resizableWidth, SourceLink } from '../Common';
 
 export const SafeModeExample = () => (
-  <Box as="section" id="safe-mode-example">
-    <Heading size="lg">
+  <section id="safe-mode-example">
+    <h2>
       Safe Mode Example <SourceLink name="SafeMode" />
-    </Heading>
-    <Text>
+    </h2>
+    <p>
       If elements are resized too quickly it can result in non-user-impacting
       errors. Where this could become a problem is if you're using a frontend
       error tracking service it could create a lot of noise.
-    </Text>
-    <Text>
-      To help mitigate, there's a <Code>safeMode</Code> prop that introduces a
+    </p>
+    <p>
+      To help mitigate, there's a <code>safeMode</code> prop that introduces a
       small amount of user-visible latency but in an attempt to reduce these
       errors.
-    </Text>
-    <Text>
+    </p>
+    <p>
       See{' '}
-      <Link href="https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded">
+      <a href="https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded">
         this StackOverflow thread
-      </Link>{' '}
+      </a>{' '}
       for more detail.
-    </Text>
+    </p>
     <ResizableBox width={resizableWidth} height={resizableHeight}>
       <PreserveRatio safeMode>
         <div
@@ -42,5 +41,5 @@ export const SafeModeExample = () => (
         </div>
       </PreserveRatio>
     </ResizableBox>
-  </Box>
+  </section>
 );

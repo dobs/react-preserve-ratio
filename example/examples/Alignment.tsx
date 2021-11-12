@@ -1,9 +1,6 @@
 import * as React from 'react';
-import { Box, Code, Heading, Text } from '@chakra-ui/layout';
 import { ResizableBox } from 'react-resizable';
 import { Align, PreserveRatio, VAlign } from '../../dist';
-import { Radio, RadioGroup } from '@chakra-ui/radio';
-import { Table, Tbody, Td, Thead, Tr } from '@chakra-ui/table';
 import {
   DefaultExampleContent,
   resizableHeight,
@@ -15,73 +12,113 @@ export const AlignmentExample = () => {
   const [alignment, setAlignment] = React.useState('center center');
 
   return (
-    <Box as="section" id="alignment-example">
-      <Heading size="lg">
+    <section id="alignment-example">
+      <h2>
         Alignment Example <SourceLink name="Alignment" />
-      </Heading>
-      <Text>
+      </h2>
+      <p>
         Components also support horizontal and vertical alignment via{' '}
-        <Code>align</Code> and <Code>valign</Code> respectively.
-      </Text>
+        <code>align</code> and <code>valign</code> respectively.
+      </p>
 
-      <RadioGroup
-        my={2}
-        onChange={v => setAlignment(v.toString())}
-        value={alignment}
-      >
-        <Table w="320px">
-          <Thead>
-            <Tr>
-              <Td></Td>
-              <Td>Left</Td>
-              <Td>Center</Td>
-              <Td>Right</Td>
-            </Tr>
-          </Thead>
-          <Tbody>
-            <Tr>
-              <Td textAlign="right">Top</Td>
-              <Td>
-                <Radio value="top left" />
-              </Td>
-              <Td>
-                <Radio value="top center" />
-              </Td>
-              <Td>
-                <Radio value="top right" />
-              </Td>
-            </Tr>
-          </Tbody>
-          <Tbody>
-            <Tr>
-              <Td textAlign="right">Center</Td>
-              <Td>
-                <Radio value="center left" />
-              </Td>
-              <Td>
-                <Radio value="center center" />
-              </Td>
-              <Td>
-                <Radio value="center right" />
-              </Td>
-            </Tr>
-          </Tbody>
-          <Tbody>
-            <Tr>
-              <Td textAlign="right">Bottom</Td>
-              <Td>
-                <Radio value="bottom left" />
-              </Td>
-              <Td>
-                <Radio value="bottom center" />
-              </Td>
-              <Td>
-                <Radio value="bottom right" />
-              </Td>
-            </Tr>
-          </Tbody>
-        </Table>
-      </RadioGroup>
+      <table style={{ width: '320px' }}>
+        <thead>
+          <tr>
+            <td></td>
+            <td style={{ textAlign: 'center' }}>Left</td>
+            <td style={{ textAlign: 'center' }}>Center</td>
+            <td style={{ textAlign: 'center' }}>Right</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style={{ textAlign: 'right' }}>Top</td>
+            <td style={{ textAlign: 'center' }}>
+              <input
+                type="radio"
+                name="alignment"
+                value="top left"
+                onChange={e => { console.log(e); setAlignment(e.target.value) }}
+              />
+            </td>
+            <td style={{ textAlign: 'center' }}>
+              <input
+                type="radio"
+                name="alignment"
+                value="top center"
+                onChange={e => { console.log(e); setAlignment(e.target.value) }}
+              />
+            </td>
+            <td style={{ textAlign: 'center' }}>
+              <input
+                type="radio"
+                name="alignment"
+                value="top right"
+                onChange={e => { console.log(e); setAlignment(e.target.value) }}
+              />
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td style={{ textAlign: 'right' }}>Center</td>
+            <td style={{ textAlign: 'center' }}>
+              <input
+                type="radio"
+                name="alignment"
+                value="center left"
+                onChange={e => { console.log(e); setAlignment(e.target.value) }}
+              />
+            </td>
+            <td style={{ textAlign: 'center' }}>
+              <input
+                type="radio"
+                name="alignment"
+                value="center center"
+                onChange={e => { console.log(e); setAlignment(e.target.value) }}
+              />
+            </td>
+            <td style={{ textAlign: 'center' }}>
+              <input
+                type="radio"
+                name="alignment"
+                value="center right"
+                onChange={e => { console.log(e); setAlignment(e.target.value) }}
+              />
+            </td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td style={{ textAlign: 'right' }}>Bottom</td>
+            <td style={{ textAlign: 'center' }}>
+              <input
+                type="radio"
+                name="alignment"
+                value="bottom left"
+                onChange={e => { console.log(e); setAlignment(e.target.value) }}
+              />
+            </td>
+            <td style={{ textAlign: 'center' }}>
+              <input
+                type="radio"
+                name="alignment"
+                value="bottom center"
+                onChange={e => { console.log(e); setAlignment(e.target.value) }}
+              />
+            </td>
+            <td style={{ textAlign: 'center' }}>
+              <input
+                type="radio"
+                name="alignment"
+                value="bottom right"
+                onChange={e => { console.log(e); setAlignment(e.target.value) }}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
       <ResizableBox width={resizableWidth} height={resizableHeight}>
         <PreserveRatio
           align={alignment.split(' ')[1] as Align}
@@ -90,6 +127,6 @@ export const AlignmentExample = () => {
           <DefaultExampleContent />
         </PreserveRatio>
       </ResizableBox>
-    </Box>
+    </section>
   );
 };

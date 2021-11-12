@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Heading, Link } from '@chakra-ui/react';
+import './styles.css';
 import { AlignmentExample } from './examples/Alignment';
 import { BasicExample } from './examples/Basic';
 import { ConstraintsExample } from './examples/Constraints';
@@ -12,13 +12,13 @@ import { WindowExample } from './examples/Window';
 
 const App = () => {
   return (
-    <Box m={4}>
-      <Heading size="xl">
+    <div>
+      <h1>
         Examples:{' '}
-        <Link href="https://github.com/dobs/react-preserve-ratio">
+        <a href="https://github.com/dobs/react-preserve-ratio">
           react-preserve-ratio
-        </Link>
-      </Heading>
+        </a>
+      </h1>
       <BasicExample />
       <ConstraintsExample />
       <ContentResizeExample />
@@ -28,7 +28,7 @@ const App = () => {
       <ContextExample />
       <PreserveScaleExample />
       <WindowExample />
-    </Box>
+    </div>
   );
 };
 
