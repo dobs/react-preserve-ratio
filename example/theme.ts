@@ -1,49 +1,54 @@
+import { Theme, ThemeConfig } from '@chakra-ui/theme';
+
 const theme = {
-    components: {
-      Alert: {
-        baseStyle: {
-          container: {
-            my: 4,
-            maxW: '640px'
-          }
-        }
+  components: {
+    Alert: {
+      baseStyle: {
+        container: {
+          my: 4,
+          maxW: '640px',
+        },
       },
-      Button: {
-        baseStyle: {
-          mr: 2
-        }
+    },
+    Button: {
+      baseStyle: {
+        mr: 2,
       },
-      Heading: {
-        sizes: {
-          lg: {
-            mt: 10,
-            mb: 3
-          }
-        }
+    },
+    Heading: {
+      sizes: {
+        lg: {
+          mt: 10,
+          mb: 3,
+        },
       },
-      List: {
-        baseStyle: {
-          maxW: '640px'
-        }
+    },
+    List: {
+      baseStyle: {
+        maxW: '640px',
       },
-      Table: {
-        baseStyle: {
-          table: {
-            maxW: '640px'
-          },
-          td: {
-            textAlign: 'center'
-          }
-        }
+    },
+    Table: {
+      baseStyle: {
+        table: {
+          maxW: '640px',
+        },
+        td: {
+          textAlign: 'center',
+        },
       },
-      Text: {
-        baseStyle: {
-          my: 3,
-          maxW: '640px'
-        }
-      }
-    }
-  }
-  
-  export default theme;
-  
+    },
+    Text: {
+      baseStyle: {
+        my: 3,
+        maxW: '640px',
+      },
+    },
+  },
+  config: {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+  },
+};
+
+export default theme;
