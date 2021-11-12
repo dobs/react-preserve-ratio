@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {
   createContext,
-  FC,
   HTMLAttributes,
   ReactNode,
   useContext,
@@ -45,7 +44,7 @@ export interface PreserveRatioProps extends HTMLAttributes<HTMLDivElement> {
   valign?: VAlign;
 }
 
-export const PreserveRatio: FC<PreserveRatioProps> = ({
+export function PreserveRatio({
   align,
   children,
   cover,
@@ -55,7 +54,7 @@ export const PreserveRatio: FC<PreserveRatioProps> = ({
   maxWidth,
   safeMode,
   valign,
-}) => {
+}: PreserveRatioProps): JSX.Element {
   const innerRef = useRef(null);
   const outerRef = useRef(null);
 
@@ -144,4 +143,4 @@ export const PreserveRatio: FC<PreserveRatioProps> = ({
       </div>
     </div>
   );
-};
+}

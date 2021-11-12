@@ -23,11 +23,13 @@ export interface SourceLinkProps {
   name: string;
 }
 
-export const SourceLink: React.FC<SourceLinkProps> = ({ name }) => (
-  <Link href={`${homepage}/blob/main/example/examples/${name}.tsx`}>
-    <ExternalLinkIcon w={4} h={4} color="gray.500" />
-  </Link>
-);
+export function SourceLink({ name }: SourceLinkProps): JSX.Element {
+  return (
+    <Link href={`${homepage}/blob/main/example/examples/${name}.tsx`}>
+      <ExternalLinkIcon w={4} h={4} color="gray.500" />
+    </Link>
+  );
+}
 
 export const resizableWidth = Math.min(640, window.innerWidth - 32);
 export const resizableHeight = 242;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FC, HTMLAttributes, ReactChild } from 'react';
+import { HTMLAttributes, ReactChild } from 'react';
 import { Align, VAlign } from './common';
 import { PreserveRatioContext, useScale } from './PreserveRatio';
 
@@ -9,11 +9,11 @@ export interface PreserveScaleProps extends HTMLAttributes<HTMLDivElement> {
   valign?: VAlign;
 }
 
-export const PreserveScale: FC<PreserveScaleProps> = ({
+export function PreserveScale({
   align,
   children,
   valign,
-}) => {
+}: PreserveScaleProps): JSX.Element | null {
   let scale = useScale();
 
   if (isNaN(scale)) {
@@ -37,4 +37,4 @@ export const PreserveScale: FC<PreserveScaleProps> = ({
       </PreserveRatioContext.Provider>
     </div>
   );
-};
+}
