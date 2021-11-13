@@ -1,14 +1,36 @@
-import * as React from 'react';
-import { HTMLAttributes, ReactChild } from 'react';
+import React, { HTMLAttributes, ReactNode } from 'react';
 import { Align, VAlign } from './common';
 import { PreserveRatioContext, useScale } from './PreserveRatio';
 
 export interface PreserveScaleProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Horizontal alignment, one of "center", "left" or "right." (default:
+   * center)
+   */
   align?: Align;
-  children: ReactChild;
+  children: ReactNode;
+
+  /**
+   * Vertical alignment, one of "center," "bottom" or "top." (default: center)
+   */
   valign?: VAlign;
 }
 
+/**
+ * When contained with a PreserveScale component, effectively reverses the
+ * effect, ensuring that contents aren't scaled.
+ *
+ *     <div>
+ *       <PreserveRatio>
+ *         <h1>Hello,</h1>
+ *         <p>World!</p>
+ *         <PreserveScale>Some Watermark</PreserveScale>
+ *       </PreserveRatio>
+ *     </div>
+ *
+ * @param params
+ * @returns
+ */
 export function PreserveScale({
   align,
   children,
