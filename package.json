@@ -1,70 +1,88 @@
 {
-  "version": "1.4.3",
+  "name": "react-preserve-ratio",
+  "author": "Daniel O'Brien",
   "homepage": "https://github.com/dobs/react-preserve-ratio",
   "license": "Apache-2.0",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "version": "1.4.3",
   "files": [
     "dist",
     "src"
   ],
-  "engines": {
-    "node": ">=10"
-  },
-  "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests --testPathIgnorePatterns=cypress",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+  "dependencies": {
+    "web-vitals": "^1.0.1"
   },
   "peerDependencies": {
-    "prop-types": ">15.0.0",
-    "react": ">16.8.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
+  "scripts": {
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build": "microbundle",
+    "start": "microbundle watch",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   },
-  "name": "react-preserve-ratio",
-  "author": "Daniel O'Brien",
-  "module": "dist/react-preserve-ratio.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/react-preserve-ratio.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/react-preserve-ratio.esm.js",
-      "limit": "10 KB"
-    }
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./dist/react-preserve-ratio.cjs",
+    "default": "./dist/react-preserve-ratio.modern.js"
+  },
+  "main": "./dist/react-preserve-ratio.cjs",
+  "module": "./dist/react-preserve-ratio.module.js",
+  "unpkg": "./dist/react-preserve-ratio.umd.js",
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@size-limit/preset-small-lib": "^6.0.4",
-    "@types/node": "^16.11.7",
-    "@types/react": "^17.0.34",
-    "@types/react-dom": "^17.0.11",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/node-logger": "^6.3.12",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.12",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-resizable": "^1.7.4",
     "@types/resize-observer-browser": "^0.1.6",
-    "babel-loader": "^8.2.3",
-    "husky": "^7.0.4",
-    "prop-types": "^15.7.2",
+    "microbundle": "^0.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-is": "^17.0.2",
-    "size-limit": "^6.0.4",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.4.4"
+    "react-resizable": "^3.0.4",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2"
   },
   "repository": {
     "type": "git",

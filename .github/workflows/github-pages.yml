@@ -2,7 +2,7 @@ name: Github Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: "16"
       - name: Cache node modules.
         uses: actions/cache@v2
         env:
@@ -21,18 +21,16 @@ jobs:
             node_modules
             example/node_modules
             /home/runner/.cache/Cypress
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}-cache
       - name: Building library.
         run: |
           yarn install
           yarn build
-      - name: Building examples.
+      - name: Building storybook.
         run: |
-          cd example
-          yarn install
-          yarn build
+          yarn build-storybook
       - name: Publishing to Github Pages.
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
-          folder: example/dist
+          folder: storybook-static
