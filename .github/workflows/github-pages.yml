@@ -21,7 +21,7 @@ jobs:
             node_modules
             example/node_modules
             /home/runner/.cache/Cypress
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}-cache
       - name: Building library.
         run: |
           yarn install
