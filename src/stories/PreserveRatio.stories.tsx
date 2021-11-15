@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import React, { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ResizableBox } from "react-resizable";
 import { PreserveRatio, PreserveScale, useScale } from "..";
 import { PreserveRatioProps } from "../PreserveRatio";
