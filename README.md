@@ -23,33 +23,38 @@ yarn add react-preserve-ratio
 ## Usage
 
 ```tsx
+import React, { Component } from 'react';
 import { PreserveRatio } from 'react-preserve-ratio';
 
-export const Example = () => {
-  <div
-    style={{
-      border: '1px dotted rgba(0, 0, 0, 0.2)',
-      display: 'block',
-      overflow: 'hidden',
-      resize: 'both',
-      width: '640px',
-    }}
-  >
-    <PreserveRatio>
+class Example extends Component {
+  render() {
+    return (
       <div
         style={{
-          backgroundColor: '#ffffdd',
-          display: 'flex',
-          width: '320px',
-          height: '240px',
-          alignItems: 'center',
-          justifyContent: 'center',
+          border: '1px dotted rgba(0, 0, 0, 0.2)',
+          display: 'block',
+          overflow: 'hidden',
+          resize: 'both',
+          width: '640px',
         }}
       >
-        Hello, world!
+        <PreserveRatio>
+          <div
+            style={{
+              backgroundColor: '#ffffdd',
+              display: 'flex',
+              width: '320px',
+              height: '240px',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            Hello, world!
+          </div>
+        </PreserveRatio>
       </div>
-    </PreserveRatio>
-  </div>
+    );
+  }
 }
 ```
 

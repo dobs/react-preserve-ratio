@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 import {
   createContext,
   HTMLAttributes,
@@ -128,17 +128,17 @@ export interface PreserveRatioProps extends HTMLAttributes<HTMLDivElement> {
  * @returns JSX.Element
  */
 export function PreserveRatio({
-  align = 'center',
+  align,
   children,
   className,
-  cover = false,
-  hint = false,
+  cover,
+  hint,
   maxHeight,
   maxScale,
   maxWidth,
-  safeMode = false,
+  safeMode,
   style = {},
-  valign = 'center',
+  valign,
 }: PreserveRatioProps): JSX.Element {
   const innerRef = useRef(null);
   const outerRef = useRef(null);
