@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties } from "react";
 import {
   createContext,
   HTMLAttributes,
@@ -8,8 +8,8 @@ import {
   useMemo,
   useRef,
   useState,
-} from 'react';
-import { Align, alignMap, VAlign, valignMap } from './common';
+} from "react";
+import { Align, alignMap, VAlign, valignMap } from "./common";
 
 interface Context {
   scale: number;
@@ -128,17 +128,17 @@ export interface PreserveRatioProps extends HTMLAttributes<HTMLDivElement> {
  * @returns JSX.Element
  */
 export function PreserveRatio({
-  align,
+  align = "center",
   children,
   className,
-  cover,
-  hint,
+  cover = false,
+  hint = false,
   maxHeight,
   maxScale,
   maxWidth,
-  safeMode,
+  safeMode = false,
   style = {},
-  valign,
+  valign = "center",
 }: PreserveRatioProps): JSX.Element {
   const innerRef = useRef(null);
   const outerRef = useRef(null);
@@ -190,14 +190,14 @@ export function PreserveRatio({
       className={className}
       ref={outerRef}
       style={{
-        height: '100%',
-        width: '100%',
-        alignItems: valignMap[valign || ''] || 'center',
-        border: 'none',
-        display: 'flex',
-        justifyContent: alignMap[align || ''] || 'space-around',
+        height: "100%",
+        width: "100%",
+        alignItems: valignMap[valign || ""] || "center",
+        border: "none",
+        display: "flex",
+        justifyContent: alignMap[align || ""] || "space-around",
         margin: 0,
-        overflow: 'hidden',
+        overflow: "hidden",
         padding: 0,
         ...style,
       }}
@@ -206,7 +206,7 @@ export function PreserveRatio({
         ref={innerRef}
         style={{
           transform: `scale(${scale})`,
-          transformOrigin: `${valign || 'center'} ${align || 'center'}`,
+          transformOrigin: `${valign || "center"} ${align || "center"}`,
         }}
       >
         <PreserveRatioContext.Provider value={{ scale }}>

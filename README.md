@@ -23,39 +23,34 @@ yarn add react-preserve-ratio
 ## Usage
 
 ```tsx
-import React, { Component } from 'react';
-import { PreserveRatio } from 'react-preserve-ratio';
+import { PreserveRatio } from "react-preserve-ratio";
 
-class Example extends Component {
-  render() {
-    return (
+export const Example = () => {
+  <div
+    style={{
+      border: "1px dotted rgba(0, 0, 0, 0.2)",
+      display: "block",
+      overflow: "hidden",
+      resize: "both",
+      width: "640px",
+    }}
+  >
+    <PreserveRatio>
       <div
         style={{
-          border: '1px dotted rgba(0, 0, 0, 0.2)',
-          display: 'block',
-          overflow: 'hidden',
-          resize: 'both',
-          width: '640px',
+          backgroundColor: "#ffffdd",
+          display: "flex",
+          width: "320px",
+          height: "240px",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        <PreserveRatio>
-          <div
-            style={{
-              backgroundColor: '#ffffdd',
-              display: 'flex',
-              width: '320px',
-              height: '240px',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            Hello, world!
-          </div>
-        </PreserveRatio>
+        Hello, world!
       </div>
-    );
-  }
-}
+    </PreserveRatio>
+  </div>;
+};
 ```
 
 ## Props
@@ -90,8 +85,8 @@ Currently there's only one context attribute:
 For convenience components can access it via the `useScale` hook:
 
 ```tsx
-import React from 'react';
-import { PreserveRatio, useScale } from 'react-preserve-ratio';
+import React from "react";
+import { PreserveRatio, useScale } from "react-preserve-ratio";
 
 function DisplayScale() {
   const scale = useScale();
@@ -110,8 +105,8 @@ function Example() {
 But it's also available via `PreserveRatioContext` if preferred:
 
 ```tsx
-import React from 'react';
-import { PreserveRatio, PreserveRatioContext } from 'react-preserve-ratio';
+import React from "react";
+import { PreserveRatio, PreserveRatioContext } from "react-preserve-ratio";
 
 function DisplayScale() {
   const { scale } = useContext(PreserveRatioContext);
@@ -133,19 +128,19 @@ Example:
 <PreserveRatio>
   <div
     style={{
-      alignItems: 'center',
-      display: 'flex',
-      height: '240px',
-      justifyContent: 'center',
-      position: 'relative',
-      overflow: 'hidden',
-      width: '320px',
+      alignItems: "center",
+      display: "flex",
+      height: "240px",
+      justifyContent: "center",
+      position: "relative",
+      overflow: "hidden",
+      width: "320px",
     }}
   >
     ... Scaling Content ...
     <div
       style={{
-        position: 'absolute',
+        position: "absolute",
         bottom: 0,
         right: 0,
       }}

@@ -1,0 +1,63 @@
+import { Meta } from "@storybook/addon-docs";
+import Code from "./assets/code-brackets.svg";
+import Colors from "./assets/colors.svg";
+import Comments from "./assets/comments.svg";
+import Direction from "./assets/direction.svg";
+import Flow from "./assets/flow.svg";
+import Plugin from "./assets/plugin.svg";
+import Repo from "./assets/repo.svg";
+import StackAlt from "./assets/stackalt.svg";
+
+<Meta title="Welcome!" />
+
+# Welcome to react-preserve-ratio!
+
+This project provides a React component to preserve an element's ratio when scaling, similar to what you might expect in a slideshow.
+
+Getting started is easy:
+
+```bash
+npm install --save react-preserve-ratio
+```
+
+Or for yarn:
+
+```bash
+yarn add react-preserve-ratio
+```
+
+Then just wrap it around your content:
+
+```tsx
+import { PreserveRatio } from 'react-preserve-ratio';
+
+export const Example = () => {
+  <div
+    style={{
+      border: '1px dotted rgba(0, 0, 0, 0.2)',
+      display: 'block',
+      overflow: 'hidden',
+      resize: 'both',
+      width: '640px',
+    }}
+  >
+    <PreserveRatio>
+      <div
+        style={{
+          backgroundColor: '#ffffdd',
+          display: 'flex',
+          width: '320px',
+          height: '240px',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        Hello, world!
+      </div>
+    </PreserveRatio>
+  </div>
+}
+```
+
+
+Check out a [Live Example](?path=/story/preserveratio--generic-example)!
