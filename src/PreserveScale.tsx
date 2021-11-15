@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import { Align, VAlign } from './common';
 import { PreserveRatioContext, useScale } from './PreserveRatio';
 
