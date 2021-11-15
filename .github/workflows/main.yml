@@ -28,5 +28,3 @@ jobs:
         run: yarn install
       - name: Building.
         run: yarn build
-      - name: Testing.
-        run: yarn test

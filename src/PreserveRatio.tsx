@@ -128,17 +128,17 @@ export interface PreserveRatioProps extends HTMLAttributes<HTMLDivElement> {
  * @returns JSX.Element
  */
 export function PreserveRatio({
-  align,
+  align = 'center',
   children,
   className,
-  cover,
-  hint,
+  cover = false,
+  hint = false,
   maxHeight,
   maxScale,
   maxWidth,
-  safeMode,
+  safeMode = false,
   style = {},
-  valign,
+  valign = 'center',
 }: PreserveRatioProps): JSX.Element {
   const innerRef = useRef(null);
   const outerRef = useRef(null);
