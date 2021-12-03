@@ -59,7 +59,7 @@
   "module": "./dist/react-preserve-ratio.module.js",
   "unpkg": "./dist/react-preserve-ratio.umd.js",
   "devDependencies": {
-    "@storybook/addon-actions": "^6.4.0",
+    "@storybook/addon-actions": "^6.4.7",
     "@storybook/addon-essentials": "^6.4.0",
     "@storybook/addon-links": "^6.4.4",
     "@storybook/node-logger": "^6.4.0",
