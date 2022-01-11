@@ -60,7 +60,7 @@
   "unpkg": "./dist/react-preserve-ratio.umd.js",
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.10",
-    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.10",
     "@storybook/addon-links": "^6.4.10",
     "@storybook/node-logger": "^6.4.10",
     "@storybook/preset-create-react-app": "^4.0.0",
